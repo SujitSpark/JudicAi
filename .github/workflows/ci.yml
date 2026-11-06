@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install pandas numpy xgboost scikit-learn pytest
+      - name: Unit tests (scoring, leakage guard, benchmark generator)
+        run: pytest -q tests
+      - name: Benchmark smoke run
+        run: |
+          python benchmarks/generate_cases.py --n 400 --seed 1
+          python benchmarks/evaluate.py --data benchmarks/data/synthetic_cases_400.csv --splits 2

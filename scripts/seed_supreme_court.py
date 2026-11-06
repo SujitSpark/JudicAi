@@ -57,7 +57,7 @@ def seed_supreme_court():
     
     # Ensure all judges exist as users in the DB
     for name in judge_names:
-        username = name.lower().replace(" ", "_").replace("'", "").replace(".", "")
+        username = name.lower().replace(" ", "_").replace("'", "").replace(".", "") + "@judic.ai"
         user = db.query(models.User).filter(models.User.username == username).first()
         if not user:
             new_user = models.User(

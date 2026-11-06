@@ -1,6 +1,4 @@
-# Paradox (JudicAI) | The Modern Magistrate
-
-![JudicAI Hero](C:\Users\ASUS\.gemini\antigravity\brain\f59673b8-950b-4815-9a57-9c2caa5ee0fb\judicai_premium_hero_1776328798530.png)
+# JudicAI | The Modern Magistrate
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -8,8 +6,9 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-1.0.0-05998b.svg)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8.svg)](https://tailwindcss.com/)
+[![CI](https://github.com/SujitSpark/JudicAi/actions/workflows/ci.yml/badge.svg)](https://github.com/SujitSpark/JudicAi/actions/workflows/ci.yml)
 
-**Paradox (JudicAI)** is a high-fidelity judicial intelligence system engineered for supreme and upper judiciaries. It serves as an **Intelligence Layer** that sits above existing registries to solve systemic backlogs through multi-agent orchestration, predictive risk scoring, and automated scheduling.
+**JudicAI** is a high-fidelity judicial intelligence system engineered for supreme and upper judiciaries. It serves as an **Intelligence Layer** that sits above existing registries to solve systemic backlogs through multi-agent orchestration, predictive risk scoring, and automated scheduling.
 
 ---
 
@@ -22,11 +21,30 @@ The judiciary faces an unprecedented backlog of millions of cases. JudicAI isn't
 
 | Module | Description | Impact |
 | :--- | :--- | :--- |
-| **⚖️ AI-Priority Registry** | Orchestrates Intake → Priority → Risk agents to rank 1,000+ cases. | Reduces manual sorting by 90% |
-| **🔍 Risk Engine** | Predicts adjournment likelihood with an **80% critical risk threshold**. | Proactively flags "Stall Warnings" |
+| **⚖️ AI-Priority Registry** | Orchestrates Intake → Priority → Risk agents to rank the case registry. | Benchmarked on 1,200 cases ([results](benchmarks/README.md)) |
+| **🔍 Risk Engine** | Hybrid rule + XGBoost adjournment-risk score with an **80-point critical threshold**. | Proactively flags "Stall Warnings" |
 | **📜 Automated Memos** | Generates legal summaries and chamber review memos using LLM orchestration. | Speeds up judge preparation |
 | **📅 Smart Allocation** | Dynamically assigns cases based on judge capacity and historical specialization. | Optimizes bench utilization |
 | **🌗 Premium UI** | "Deep Ink & Brass" aesthetics providing a professional, distraction-free interface. | Enhanced focus for judicial staff |
+
+---
+
+## 📊 Benchmark & Testing
+
+JudicAI's triage agents are evaluated on a **1,200-case synthetic benchmark** modelled on
+100 real Supreme Court cases (see [`benchmarks/`](benchmarks/README.md)), against the manual
+"oldest case first" order a registry clerk would use:
+
+| Ranking | ROC-AUC | Precision @ top 20% | Review effort saved |
+|---|---|---|---|
+| Manual (oldest first) | 0.51 | 43% | — |
+| Risk agent (rule engine) | 0.60 | 49% | 9% |
+| Proposed supervised stall classifier | **0.65** | **59%** | **15%** |
+
+The benchmark exposed and fixed **target leakage** in the risk model (it scored a meaningless
+R² of 1.00 by reading its own target; R² is 0.67 once fixed), negative risk scores, and an
+index-alignment bug. `pytest tests` covers scoring, the leakage guard and the generator, and
+runs in CI.
 
 ---
 
@@ -55,6 +73,13 @@ graph TD
         I --> J[Judicial Insights Dashboard]
     end
 ```
+
+### 🧩 Sub-System Component Architecture & Flows
+Below are the visual reference diagrams detailing the sub-system block architecture and agent-entity interaction flows:
+
+| Sub-System Component Relationships | Agent Entity Interaction Flows |
+| :---: | :---: |
+| ![Sub-System Component Relationships](images/A.%20Sub-Systems%20%28Blocks_Entities%29%20-%20visual%20selection%20%284%29.png) | ![Agent Entity Interaction Flows](images/A.%20Sub-Systems%20%28Blocks_Entities%29%20-%20visual%20selection%20%285%29.png) |
 
 ---
 
@@ -112,7 +137,7 @@ python scripts/seed_supreme_court.py
 ## 📂 Project Structure
 
 ```text
-Paradox/
+JudicAi/
 ├── backend/            # FastAPI Application
 │   ├── app/            # Core logic, Agents, API, DB
 │   └── requirements.txt

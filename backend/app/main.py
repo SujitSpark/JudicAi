@@ -9,7 +9,7 @@ from .api.api_router import api_router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Paradox (JudicAI) Backend", 
+    title="JudicAI Backend", 
     version="1.0.0",
     description="High-fidelity judicial intelligence system for the Supreme Court."
 )
@@ -28,7 +28,7 @@ app.include_router(api_router)
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy", "service": "Paradox Backend"}
+    return {"status": "healthy", "service": "JudicAI Backend"}
 
 if __name__ == "__main__":
     import uvicorn

@@ -1,101 +1,101 @@
 case_id,case_number,filing_date,registration_date,case_type,nature_of_case,district,state,court_name,court_name_level,adjournments_count,petitioner_count,respondent_count,last_hearing_date,next_hearing_date,status
-SC-2024-0001,Writ Petition (POCSO) No. 5080 of 2010,2010-04-24,2010-04-24,Writ Petition (POCSO),CRITICAL / LIFE & LIBERTY,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,88,4,1,2026-06-19,2026-07-24,Adjourned
-SC-2024-0002,Habeas Corpus No. 5279 of 2011,2011-06-01,2011-06-01,Habeas Corpus,CRITICAL / LIFE & LIBERTY,New Delhi,Gujarat,Supreme Court of India,Apex Court,86,4,10,2026-06-30,2026-09-04,Adjourned
-SC-2024-0003,Habeas Corpus No. 6245 of 2005,2005-09-18,2005-09-18,Habeas Corpus,CRITICAL / LIFE & LIBERTY,New Delhi,Maharashtra,Supreme Court of India,Apex Court,66,8,3,2026-07-02,2026-07-24,Adjourned
-SC-2024-0004,Criminal Appeal (Murder Case) No. 6958 of 2011,2011-12-14,2011-12-14,Criminal Appeal (Murder Case),CRITICAL / LIFE & LIBERTY,New Delhi,West Bengal,Supreme Court of India,Apex Court,66,7,5,2026-06-16,2026-08-22,Adjourned
-SC-2024-0005,Criminal Appeal (Murder Case) No. 5863 of 2005,2005-03-15,2005-03-15,Criminal Appeal (Murder Case),CRITICAL / LIFE & LIBERTY,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,87,7,4,2026-06-24,2026-07-20,Adjourned
-SC-2024-0006,SLP (Criminal) - BAIL No. 3904 of 2015,2015-07-24,2015-07-24,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Karnataka,Supreme Court of India,Apex Court,52,7,8,2026-06-13,2026-07-14,Adjourned
-SC-2024-0007,SLP (Criminal) - BAIL No. 5112 of 2016,2016-12-10,2016-12-10,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Karnataka,Supreme Court of India,Apex Court,52,3,3,2026-07-01,2026-08-16,Adjourned
-SC-2024-0008,Civil Appeal (Land Registry) No. 9388 of 2017,2017-08-14,2017-08-14,Civil Appeal (Land Registry),ELEVATED RISK,New Delhi,Delhi,Supreme Court of India,Apex Court,50,5,3,2026-06-23,2026-08-17,Adjourned
-SC-2024-0009,Civil Appeal (Land Registry) No. 3733 of 2016,2016-06-28,2016-06-28,Civil Appeal (Land Registry),ELEVATED RISK,New Delhi,Karnataka,Supreme Court of India,Apex Court,54,5,4,2026-06-13,2026-08-24,Adjourned
-SC-2024-0010,Writ Petition No. 5010 of 2019,2019-03-08,2019-03-08,Writ Petition,ELEVATED RISK,New Delhi,Gujarat,Supreme Court of India,Apex Court,45,6,2,2026-06-28,2026-07-14,Adjourned
-SC-2024-0011,SLP (Criminal) - BAIL No. 7678 of 2017,2017-03-13,2017-03-13,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,52,8,10,2026-06-10,2026-07-18,Adjourned
-SC-2024-0012,Writ Petition No. 7279 of 2018,2018-11-17,2018-11-17,Writ Petition,ELEVATED RISK,New Delhi,Delhi,Supreme Court of India,Apex Court,52,8,4,2026-06-16,2026-07-26,Adjourned
-SC-2024-0013,SLP (Criminal) - BAIL No. 7290 of 2015,2015-05-11,2015-05-11,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Karnataka,Supreme Court of India,Apex Court,49,6,7,2026-06-15,2026-07-23,Adjourned
-SC-2024-0014,SLP (Criminal) - BAIL No. 8317 of 2018,2018-03-22,2018-03-22,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Gujarat,Supreme Court of India,Apex Court,46,4,7,2026-06-28,2026-08-13,Adjourned
-SC-2024-0015,Writ Petition No. 1097 of 2017,2017-06-03,2017-06-03,Writ Petition,ELEVATED RISK,New Delhi,Maharashtra,Supreme Court of India,Apex Court,37,4,6,2026-07-09,2026-08-06,Adjourned
-SC-2024-0016,Transfer Petition No. 6573 of 2022,2024-06-05,2024-06-05,Transfer Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,1,3,9,2026-06-28,2026-08-11,Adjourned
-SC-2024-0017,Writ Petition No. 5239 of 2023,2025-08-19,2025-08-19,Writ Petition,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,10,5,1,2026-06-13,2026-07-16,Pending
-SC-2024-0018,Civil Appeal No. 3691 of 2023,2024-10-04,2024-10-04,Civil Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,3,2,7,2026-06-22,2026-08-18,Adjourned
-SC-2024-0019,Civil Appeal No. 1127 of 2023,2024-09-08,2024-09-08,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,10,1,3,2026-06-17,2026-09-06,Pending
-SC-2024-0020,SLP (Criminal) No. 4426 of 2023,2026-01-02,2026-01-02,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,6,2,8,2026-06-13,2026-09-05,Heard/Reserved
-SC-2024-0021,SLP (Civil) No. 4752 of 2021,2025-09-29,2025-09-29,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,0,3,1,2026-07-04,2026-07-22,Adjourned
-SC-2024-0022,Civil Appeal No. 2773 of 2023,2026-01-18,2026-01-18,Civil Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,5,3,1,2026-06-22,2026-09-03,Adjourned
-SC-2024-0023,SLP (Criminal) No. 2727 of 2022,2024-07-05,2024-07-05,SLP (Criminal),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,6,3,4,2026-06-16,2026-07-24,Pending
-SC-2024-0024,Criminal Appeal No. 1092 of 2021,2025-10-18,2025-10-18,Criminal Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,6,3,4,2026-06-13,2026-08-26,Heard/Reserved
-SC-2024-0025,Writ Petition No. 3572 of 2021,2025-04-18,2025-04-18,Writ Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,8,1,2,2026-06-29,2026-07-14,Heard/Reserved
-SC-2024-0026,SLP (Civil) No. 1719 of 2022,2025-04-21,2025-04-21,SLP (Civil),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,9,1,1,2026-06-23,2026-07-19,Adjourned
-SC-2024-0027,SLP (Criminal) No. 3599 of 2024,2024-10-11,2024-10-11,SLP (Criminal),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,4,5,5,2026-06-26,2026-08-13,Pending
-SC-2024-0028,Criminal Appeal No. 3227 of 2021,2024-07-26,2024-07-26,Criminal Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,5,3,2,2026-06-15,2026-08-30,Adjourned
-SC-2024-0029,SLP (Civil) No. 4167 of 2021,2025-11-04,2025-11-04,SLP (Civil),General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,6,5,3,2026-07-05,2026-07-28,Heard/Reserved
-SC-2024-0030,SLP (Criminal) No. 3995 of 2021,2026-05-22,2026-05-22,SLP (Criminal),General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,4,1,4,2026-06-12,2026-09-08,Heard/Reserved
-SC-2024-0031,Transfer Petition No. 7028 of 2024,2025-07-24,2025-07-24,Transfer Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,1,2,4,2026-07-09,2026-07-24,Adjourned
-SC-2024-0032,Criminal Appeal No. 9213 of 2021,2026-06-02,2026-06-02,Criminal Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,1,5,1,2026-07-05,2026-07-14,Adjourned
-SC-2024-0033,Civil Appeal No. 7127 of 2021,2025-12-07,2025-12-07,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,4,4,5,2026-06-12,2026-07-28,Pending
-SC-2024-0034,SLP (Civil) No. 7337 of 2023,2025-01-07,2025-01-07,SLP (Civil),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,1,5,10,2026-06-12,2026-08-18,Pending
-SC-2024-0035,Criminal Appeal No. 3658 of 2023,2026-03-26,2026-03-26,Criminal Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,8,4,6,2026-07-01,2026-07-16,Pending
-SC-2024-0036,SLP (Criminal) No. 6196 of 2023,2024-11-05,2024-11-05,SLP (Criminal),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,3,7,2026-06-14,2026-09-06,Pending
-SC-2024-0037,SLP (Civil) No. 3872 of 2021,2024-09-17,2024-09-17,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,1,4,1,2026-06-12,2026-08-21,Heard/Reserved
-SC-2024-0038,Civil Appeal No. 9587 of 2022,2024-09-13,2024-09-13,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,0,5,3,2026-06-21,2026-08-14,Heard/Reserved
-SC-2024-0039,Criminal Appeal No. 9983 of 2024,2026-03-15,2026-03-15,Criminal Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,5,5,7,2026-07-01,2026-08-05,Heard/Reserved
-SC-2024-0040,Transfer Petition No. 1214 of 2024,2024-08-09,2024-08-09,Transfer Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,10,4,8,2026-06-11,2026-08-21,Pending
-SC-2024-0041,Criminal Appeal No. 5833 of 2024,2025-09-22,2025-09-22,Criminal Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,9,4,5,2026-06-14,2026-07-24,Heard/Reserved
-SC-2024-0042,Civil Appeal No. 5423 of 2023,2025-11-08,2025-11-08,Civil Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,6,5,7,2026-06-29,2026-07-13,Adjourned
-SC-2024-0043,Criminal Appeal No. 6067 of 2022,2025-06-16,2025-06-16,Criminal Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,4,5,1,2026-06-29,2026-08-21,Heard/Reserved
-SC-2024-0044,SLP (Civil) No. 3355 of 2021,2026-02-08,2026-02-08,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,1,4,1,2026-06-22,2026-09-08,Adjourned
-SC-2024-0045,Civil Appeal No. 4481 of 2021,2024-06-04,2024-06-04,Civil Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,7,4,7,2026-06-24,2026-08-02,Heard/Reserved
-SC-2024-0046,SLP (Civil) No. 6151 of 2023,2025-07-02,2025-07-02,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,9,3,5,2026-07-02,2026-08-15,Pending
-SC-2024-0047,SLP (Civil) No. 4635 of 2024,2025-06-17,2025-06-17,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,1,5,2026-07-05,2026-08-23,Adjourned
-SC-2024-0048,Civil Appeal No. 9073 of 2024,2025-05-06,2025-05-06,Civil Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,8,1,2,2026-07-06,2026-08-27,Pending
-SC-2024-0049,SLP (Criminal) No. 1993 of 2023,2024-10-03,2024-10-03,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,0,2,9,2026-06-24,2026-08-07,Adjourned
-SC-2024-0050,Transfer Petition No. 3717 of 2022,2024-06-09,2024-06-09,Transfer Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,3,2,7,2026-06-23,2026-08-26,Pending
-SC-2024-0051,SLP (Civil) No. 4501 of 2024,2026-01-03,2026-01-03,SLP (Civil),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,0,1,6,2026-06-29,2026-07-21,Pending
-SC-2024-0052,Criminal Appeal No. 8438 of 2021,2024-05-05,2024-05-05,Criminal Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,1,1,7,2026-06-16,2026-07-19,Adjourned
-SC-2024-0053,SLP (Criminal) No. 5578 of 2021,2024-07-25,2024-07-25,SLP (Criminal),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,1,8,2026-06-16,2026-09-07,Adjourned
-SC-2024-0054,Civil Appeal No. 6088 of 2022,2025-09-16,2025-09-16,Civil Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,10,3,4,2026-06-17,2026-07-16,Heard/Reserved
-SC-2024-0055,Civil Appeal No. 9220 of 2024,2024-07-02,2024-07-02,Civil Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,3,1,9,2026-06-28,2026-07-22,Heard/Reserved
-SC-2024-0056,Writ Petition No. 5712 of 2022,2025-08-22,2025-08-22,Writ Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,8,1,3,2026-06-13,2026-08-07,Adjourned
-SC-2024-0057,SLP (Civil) No. 2798 of 2022,2025-10-18,2025-10-18,SLP (Civil),General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,8,1,8,2026-06-24,2026-09-02,Adjourned
-SC-2024-0058,SLP (Civil) No. 6561 of 2022,2026-04-16,2026-04-16,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,2,1,9,2026-06-14,2026-07-15,Adjourned
-SC-2024-0059,Writ Petition No. 9775 of 2021,2025-07-19,2025-07-19,Writ Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,4,4,5,2026-06-25,2026-07-24,Adjourned
-SC-2024-0060,Civil Appeal No. 3316 of 2022,2025-03-23,2025-03-23,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,0,1,7,2026-06-18,2026-08-26,Pending
-SC-2024-0061,Transfer Petition No. 8416 of 2024,2025-04-12,2025-04-12,Transfer Petition,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,10,2,8,2026-07-03,2026-08-25,Pending
-SC-2024-0062,SLP (Criminal) No. 4015 of 2022,2024-05-22,2024-05-22,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,4,1,2,2026-06-16,2026-08-24,Pending
-SC-2024-0063,Criminal Appeal No. 9410 of 2023,2026-06-07,2026-06-07,Criminal Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,9,4,7,2026-06-22,2026-07-15,Heard/Reserved
-SC-2024-0064,Civil Appeal No. 7671 of 2023,2025-11-19,2025-11-19,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,8,5,7,2026-06-28,2026-09-03,Heard/Reserved
-SC-2024-0065,Criminal Appeal No. 8832 of 2022,2024-05-03,2024-05-03,Criminal Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,6,2,9,2026-06-12,2026-07-19,Adjourned
-SC-2024-0066,Writ Petition No. 9457 of 2023,2025-11-22,2025-11-22,Writ Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,0,5,6,2026-06-27,2026-07-19,Pending
-SC-2024-0067,SLP (Civil) No. 4294 of 2021,2025-01-24,2025-01-24,SLP (Civil),General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,2,1,5,2026-06-28,2026-09-03,Adjourned
-SC-2024-0068,Civil Appeal No. 9645 of 2024,2025-11-05,2025-11-05,Civil Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,3,3,5,2026-06-20,2026-08-11,Adjourned
-SC-2024-0069,Writ Petition No. 3283 of 2024,2025-02-11,2025-02-11,Writ Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,10,3,10,2026-06-26,2026-08-27,Adjourned
-SC-2024-0070,SLP (Criminal) No. 8332 of 2024,2024-09-19,2024-09-19,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,5,5,3,2026-06-27,2026-07-27,Heard/Reserved
-SC-2024-0071,SLP (Civil) No. 6404 of 2022,2025-10-15,2025-10-15,SLP (Civil),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,3,2,7,2026-07-02,2026-07-31,Adjourned
-SC-2024-0072,Writ Petition No. 4255 of 2024,2025-09-07,2025-09-07,Writ Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,6,3,1,2026-06-21,2026-07-12,Pending
-SC-2024-0073,SLP (Criminal) No. 3524 of 2024,2026-01-07,2026-01-07,SLP (Criminal),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,5,2,7,2026-06-18,2026-08-20,Heard/Reserved
-SC-2024-0074,Transfer Petition No. 3816 of 2021,2025-04-18,2025-04-18,Transfer Petition,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,5,3,9,2026-06-14,2026-07-25,Heard/Reserved
-SC-2024-0075,Civil Appeal No. 4905 of 2022,2024-10-29,2024-10-29,Civil Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,0,3,9,2026-06-27,2026-09-03,Adjourned
-SC-2024-0076,Transfer Petition No. 6335 of 2021,2026-03-28,2026-03-28,Transfer Petition,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,5,1,4,2026-07-04,2026-07-29,Heard/Reserved
-SC-2024-0077,SLP (Criminal) No. 1086 of 2021,2025-08-21,2025-08-21,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,4,5,7,2026-07-07,2026-08-30,Adjourned
-SC-2024-0078,SLP (Criminal) No. 3382 of 2023,2025-10-28,2025-10-28,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,5,5,3,2026-06-30,2026-08-08,Heard/Reserved
-SC-2024-0079,Criminal Appeal No. 6761 of 2021,2026-05-09,2026-05-09,Criminal Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,6,1,7,2026-06-13,2026-08-20,Heard/Reserved
-SC-2024-0080,SLP (Civil) No. 3317 of 2023,2025-09-03,2025-09-03,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,3,3,10,2026-06-10,2026-07-25,Heard/Reserved
-SC-2024-0081,Transfer Petition No. 1249 of 2024,2024-08-20,2024-08-20,Transfer Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,4,4,2,2026-07-04,2026-08-31,Pending
-SC-2024-0082,Transfer Petition No. 9922 of 2022,2024-07-18,2024-07-18,Transfer Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,6,2,6,2026-06-26,2026-07-13,Pending
-SC-2024-0083,SLP (Civil) No. 1677 of 2024,2025-02-02,2025-02-02,SLP (Civil),General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,10,4,9,2026-06-30,2026-08-18,Heard/Reserved
-SC-2024-0084,Criminal Appeal No. 9234 of 2021,2025-08-14,2025-08-14,Criminal Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,5,3,2,2026-06-10,2026-07-20,Adjourned
-SC-2024-0085,Transfer Petition No. 1600 of 2021,2024-08-20,2024-08-20,Transfer Petition,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,7,5,6,2026-06-11,2026-08-09,Heard/Reserved
-SC-2024-0086,Civil Appeal No. 2958 of 2021,2025-10-20,2025-10-20,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,1,7,2026-06-23,2026-07-11,Heard/Reserved
-SC-2024-0087,SLP (Civil) No. 7790 of 2021,2026-05-08,2026-05-08,SLP (Civil),General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,2,3,4,2026-06-12,2026-08-30,Heard/Reserved
-SC-2024-0088,Writ Petition No. 5212 of 2022,2025-01-24,2025-01-24,Writ Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,2,3,9,2026-06-10,2026-08-05,Adjourned
-SC-2024-0089,Criminal Appeal No. 2957 of 2023,2024-06-24,2024-06-24,Criminal Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,3,5,7,2026-06-20,2026-08-02,Adjourned
-SC-2024-0090,Transfer Petition No. 7905 of 2024,2024-05-20,2024-05-20,Transfer Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,5,1,8,2026-06-24,2026-08-28,Pending
-SC-2024-0091,Criminal Appeal No. 1812 of 2024,2025-02-27,2025-02-27,Criminal Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,3,1,7,2026-06-22,2026-08-03,Adjourned
-SC-2024-0092,Civil Appeal No. 8234 of 2024,2025-10-11,2025-10-11,Civil Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,5,2,2,2026-06-30,2026-08-26,Adjourned
-SC-2024-0093,SLP (Criminal) No. 9929 of 2022,2026-03-25,2026-03-25,SLP (Criminal),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,9,2,10,2026-06-24,2026-07-15,Heard/Reserved
-SC-2024-0094,Writ Petition No. 2095 of 2023,2026-02-12,2026-02-12,Writ Petition,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,8,1,1,2026-06-14,2026-08-23,Heard/Reserved
-SC-2024-0095,Writ Petition No. 3488 of 2024,2024-07-11,2024-07-11,Writ Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,3,5,1,2026-06-18,2026-07-20,Pending
-SC-2024-0096,SLP (Criminal) No. 1408 of 2024,2024-06-11,2024-06-11,SLP (Criminal),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,3,4,9,2026-06-10,2026-08-01,Pending
-SC-2024-0097,Civil Appeal No. 5413 of 2023,2025-02-04,2025-02-04,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,7,3,10,2026-06-23,2026-08-21,Adjourned
-SC-2024-0098,SLP (Civil) No. 1541 of 2022,2025-05-20,2025-05-20,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,3,8,2026-06-18,2026-08-06,Pending
-SC-2024-0099,SLP (Civil) No. 3201 of 2021,2026-04-25,2026-04-25,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,2,2,8,2026-06-15,2026-08-09,Heard/Reserved
-SC-2024-0100,Writ Petition No. 4176 of 2021,2025-03-18,2025-03-18,Writ Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,4,2,5,2026-06-13,2026-07-30,Pending
+SC-2024-0001,Writ Petition (POCSO) No. 2957 of 2007,2007-02-05,2007-02-05,Writ Petition (POCSO),CRITICAL / LIFE & LIBERTY,New Delhi,Gujarat,Supreme Court of India,Apex Court,78,7,2,2026-07-11,2026-09-09,Adjourned
+SC-2024-0002,Criminal Appeal (Murder Case) No. 4851 of 2008,2008-11-13,2008-11-13,Criminal Appeal (Murder Case),CRITICAL / LIFE & LIBERTY,New Delhi,Maharashtra,Supreme Court of India,Apex Court,84,3,10,2026-07-13,2026-09-01,Adjourned
+SC-2024-0003,Criminal Appeal (Murder Case) No. 7234 of 2007,2007-03-28,2007-03-28,Criminal Appeal (Murder Case),CRITICAL / LIFE & LIBERTY,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,82,8,8,2026-07-02,2026-08-01,Adjourned
+SC-2024-0004,Habeas Corpus No. 7348 of 2011,2011-02-05,2011-02-05,Habeas Corpus,CRITICAL / LIFE & LIBERTY,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,89,5,10,2026-06-19,2026-08-15,Adjourned
+SC-2024-0005,Writ Petition (POCSO) No. 7345 of 2008,2008-12-02,2008-12-02,Writ Petition (POCSO),CRITICAL / LIFE & LIBERTY,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,90,7,2,2026-06-22,2026-09-07,Adjourned
+SC-2024-0006,Writ Petition No. 7225 of 2017,2017-05-16,2017-05-16,Writ Petition,ELEVATED RISK,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,45,7,2,2026-07-14,2026-08-15,Adjourned
+SC-2024-0007,Writ Petition No. 8193 of 2019,2019-08-01,2019-08-01,Writ Petition,ELEVATED RISK,New Delhi,West Bengal,Supreme Court of India,Apex Court,54,4,7,2026-07-07,2026-07-24,Adjourned
+SC-2024-0008,Writ Petition No. 3400 of 2018,2018-07-04,2018-07-04,Writ Petition,ELEVATED RISK,New Delhi,Maharashtra,Supreme Court of India,Apex Court,52,6,2,2026-06-30,2026-08-15,Adjourned
+SC-2024-0009,SLP (Criminal) - BAIL No. 2731 of 2016,2016-08-22,2016-08-22,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Karnataka,Supreme Court of India,Apex Court,37,4,4,2026-07-09,2026-07-22,Adjourned
+SC-2024-0010,Civil Appeal (Land Registry) No. 6850 of 2019,2019-08-04,2019-08-04,Civil Appeal (Land Registry),ELEVATED RISK,New Delhi,Delhi,Supreme Court of India,Apex Court,35,6,6,2026-06-26,2026-08-01,Adjourned
+SC-2024-0011,Writ Petition No. 8640 of 2016,2016-06-24,2016-06-24,Writ Petition,ELEVATED RISK,New Delhi,West Bengal,Supreme Court of India,Apex Court,55,3,9,2026-06-30,2026-09-05,Adjourned
+SC-2024-0012,SLP (Criminal) - BAIL No. 8276 of 2017,2017-08-26,2017-08-26,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,44,7,9,2026-07-04,2026-08-31,Adjourned
+SC-2024-0013,SLP (Criminal) - BAIL No. 9840 of 2018,2018-09-01,2018-09-01,SLP (Criminal) - BAIL,ELEVATED RISK,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,41,6,1,2026-07-03,2026-08-31,Adjourned
+SC-2024-0014,Writ Petition No. 6882 of 2015,2015-05-28,2015-05-28,Writ Petition,ELEVATED RISK,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,53,7,4,2026-06-30,2026-08-18,Adjourned
+SC-2024-0015,Writ Petition No. 4366 of 2018,2018-08-26,2018-08-26,Writ Petition,ELEVATED RISK,New Delhi,Karnataka,Supreme Court of India,Apex Court,46,3,1,2026-07-17,2026-07-23,Adjourned
+SC-2024-0016,Civil Appeal No. 2571 of 2023,2024-09-05,2024-09-05,Civil Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,3,3,8,2026-07-01,2026-07-30,Heard/Reserved
+SC-2024-0017,Civil Appeal No. 7693 of 2021,2026-05-21,2026-05-21,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,5,3,8,2026-07-12,2026-07-29,Adjourned
+SC-2024-0018,Criminal Appeal No. 3727 of 2024,2025-11-24,2025-11-24,Criminal Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,2,1,10,2026-07-14,2026-07-30,Heard/Reserved
+SC-2024-0019,Transfer Petition No. 2481 of 2021,2025-07-15,2025-07-15,Transfer Petition,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,10,2,8,2026-07-10,2026-08-28,Pending
+SC-2024-0020,Transfer Petition No. 1483 of 2023,2025-11-03,2025-11-03,Transfer Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,9,2,9,2026-07-07,2026-08-02,Pending
+SC-2024-0021,Civil Appeal No. 5937 of 2024,2026-06-15,2026-06-15,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,3,2,2,2026-06-29,2026-09-07,Heard/Reserved
+SC-2024-0022,Writ Petition No. 2859 of 2023,2025-07-03,2025-07-03,Writ Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,2,2,10,2026-06-21,2026-09-07,Heard/Reserved
+SC-2024-0023,Writ Petition No. 3656 of 2024,2026-04-19,2026-04-19,Writ Petition,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,7,5,1,2026-07-01,2026-08-14,Adjourned
+SC-2024-0024,Civil Appeal No. 6023 of 2022,2025-04-16,2025-04-16,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,10,1,2,2026-07-04,2026-08-08,Adjourned
+SC-2024-0025,SLP (Criminal) No. 2365 of 2023,2026-04-18,2026-04-18,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,9,4,2,2026-06-21,2026-08-27,Pending
+SC-2024-0026,SLP (Criminal) No. 9957 of 2023,2025-05-06,2025-05-06,SLP (Criminal),General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,6,2,7,2026-07-06,2026-08-26,Pending
+SC-2024-0027,Transfer Petition No. 5774 of 2024,2025-05-01,2025-05-01,Transfer Petition,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,4,4,4,2026-07-08,2026-09-05,Pending
+SC-2024-0028,SLP (Criminal) No. 3516 of 2023,2025-07-02,2025-07-02,SLP (Criminal),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,5,3,3,2026-06-30,2026-08-21,Pending
+SC-2024-0029,Civil Appeal No. 3278 of 2021,2026-02-02,2026-02-02,Civil Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,4,4,5,2026-07-11,2026-08-23,Heard/Reserved
+SC-2024-0030,Civil Appeal No. 3723 of 2024,2024-11-23,2024-11-23,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,3,2,4,2026-07-04,2026-08-30,Heard/Reserved
+SC-2024-0031,Civil Appeal No. 1137 of 2024,2025-03-14,2025-03-14,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,9,2,4,2026-07-02,2026-08-09,Pending
+SC-2024-0032,SLP (Criminal) No. 7035 of 2021,2024-06-07,2024-06-07,SLP (Criminal),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,5,1,1,2026-07-11,2026-08-25,Heard/Reserved
+SC-2024-0033,Civil Appeal No. 4457 of 2023,2025-04-28,2025-04-28,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,2,5,5,2026-07-12,2026-08-29,Pending
+SC-2024-0034,Transfer Petition No. 8664 of 2024,2026-04-25,2026-04-25,Transfer Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,2,1,7,2026-06-19,2026-09-01,Adjourned
+SC-2024-0035,Civil Appeal No. 9797 of 2022,2025-08-18,2025-08-18,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,0,1,7,2026-07-02,2026-08-10,Pending
+SC-2024-0036,Criminal Appeal No. 9758 of 2022,2024-09-10,2024-09-10,Criminal Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,6,4,10,2026-07-17,2026-09-11,Pending
+SC-2024-0037,Writ Petition No. 6358 of 2022,2025-01-18,2025-01-18,Writ Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,7,2,1,2026-06-18,2026-08-21,Pending
+SC-2024-0038,SLP (Civil) No. 7249 of 2024,2025-01-28,2025-01-28,SLP (Civil),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,9,3,2,2026-06-24,2026-08-15,Pending
+SC-2024-0039,Transfer Petition No. 9410 of 2023,2025-08-24,2025-08-24,Transfer Petition,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,3,5,7,2026-06-21,2026-08-07,Adjourned
+SC-2024-0040,Criminal Appeal No. 8715 of 2021,2024-05-22,2024-05-22,Criminal Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,8,2,2,2026-06-20,2026-08-02,Adjourned
+SC-2024-0041,Transfer Petition No. 2865 of 2022,2025-05-11,2025-05-11,Transfer Petition,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,2,1,8,2026-06-22,2026-09-09,Adjourned
+SC-2024-0042,Civil Appeal No. 1507 of 2023,2026-03-21,2026-03-21,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,6,4,4,2026-06-28,2026-09-15,Pending
+SC-2024-0043,Transfer Petition No. 9544 of 2023,2025-12-28,2025-12-28,Transfer Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,4,3,8,2026-07-02,2026-08-18,Adjourned
+SC-2024-0044,Criminal Appeal No. 1927 of 2024,2025-10-13,2025-10-13,Criminal Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,6,2,8,2026-07-02,2026-07-26,Adjourned
+SC-2024-0045,SLP (Civil) No. 3513 of 2023,2025-09-05,2025-09-05,SLP (Civil),General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,4,3,6,2026-07-09,2026-08-13,Heard/Reserved
+SC-2024-0046,Criminal Appeal No. 6962 of 2022,2025-01-28,2025-01-28,Criminal Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,1,3,8,2026-06-18,2026-08-17,Pending
+SC-2024-0047,Criminal Appeal No. 7568 of 2024,2025-07-23,2025-07-23,Criminal Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,0,1,6,2026-07-10,2026-08-27,Pending
+SC-2024-0048,Criminal Appeal No. 8498 of 2023,2024-06-18,2024-06-18,Criminal Appeal,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,5,2,3,2026-07-17,2026-09-02,Pending
+SC-2024-0049,SLP (Civil) No. 1791 of 2021,2024-08-11,2024-08-11,SLP (Civil),General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,1,2,4,2026-06-30,2026-08-12,Adjourned
+SC-2024-0050,SLP (Civil) No. 1422 of 2024,2025-09-18,2025-09-18,SLP (Civil),General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,5,5,8,2026-07-08,2026-09-12,Adjourned
+SC-2024-0051,SLP (Civil) No. 2046 of 2023,2025-08-21,2025-08-21,SLP (Civil),General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,1,5,4,2026-06-25,2026-07-21,Heard/Reserved
+SC-2024-0052,Criminal Appeal No. 3538 of 2024,2025-10-23,2025-10-23,Criminal Appeal,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,10,2,10,2026-06-28,2026-07-21,Pending
+SC-2024-0053,Civil Appeal No. 6345 of 2021,2024-09-26,2024-09-26,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,7,5,6,2026-06-26,2026-08-29,Pending
+SC-2024-0054,SLP (Criminal) No. 1697 of 2021,2026-01-24,2026-01-24,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,6,1,6,2026-06-19,2026-09-04,Heard/Reserved
+SC-2024-0055,SLP (Civil) No. 7096 of 2022,2025-08-28,2025-08-28,SLP (Civil),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,10,1,8,2026-07-15,2026-07-19,Pending
+SC-2024-0056,Civil Appeal No. 4479 of 2021,2025-11-04,2025-11-04,Civil Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,2,5,7,2026-07-13,2026-08-12,Adjourned
+SC-2024-0057,SLP (Civil) No. 1366 of 2024,2025-09-08,2025-09-08,SLP (Civil),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,8,2,3,2026-07-08,2026-07-27,Pending
+SC-2024-0058,SLP (Civil) No. 9714 of 2024,2025-04-04,2025-04-04,SLP (Civil),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,4,4,6,2026-07-03,2026-08-13,Heard/Reserved
+SC-2024-0059,SLP (Civil) No. 2947 of 2022,2025-12-06,2025-12-06,SLP (Civil),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,1,1,3,2026-07-04,2026-09-01,Heard/Reserved
+SC-2024-0060,Criminal Appeal No. 3363 of 2021,2024-08-20,2024-08-20,Criminal Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,8,5,8,2026-06-18,2026-08-12,Pending
+SC-2024-0061,Civil Appeal No. 6061 of 2024,2025-10-30,2025-10-30,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,6,4,9,2026-07-16,2026-07-27,Heard/Reserved
+SC-2024-0062,Transfer Petition No. 8053 of 2021,2026-02-27,2026-02-27,Transfer Petition,General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,0,1,2,2026-06-24,2026-09-11,Heard/Reserved
+SC-2024-0063,Transfer Petition No. 7247 of 2024,2025-05-14,2025-05-14,Transfer Petition,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,2,3,5,2026-06-21,2026-09-06,Adjourned
+SC-2024-0064,Criminal Appeal No. 9982 of 2021,2025-07-11,2025-07-11,Criminal Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,1,3,6,2026-06-28,2026-09-03,Heard/Reserved
+SC-2024-0065,Writ Petition No. 7828 of 2024,2025-11-25,2025-11-25,Writ Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,1,2,4,2026-06-28,2026-08-02,Adjourned
+SC-2024-0066,Writ Petition No. 9215 of 2022,2024-10-22,2024-10-22,Writ Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,8,4,1,2026-06-18,2026-08-22,Adjourned
+SC-2024-0067,SLP (Criminal) No. 3191 of 2022,2026-04-15,2026-04-15,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,9,3,6,2026-07-02,2026-07-29,Pending
+SC-2024-0068,Transfer Petition No. 1586 of 2021,2025-02-02,2025-02-02,Transfer Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,5,5,4,2026-06-26,2026-08-17,Adjourned
+SC-2024-0069,SLP (Criminal) No. 6776 of 2023,2025-08-24,2025-08-24,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,9,4,10,2026-07-14,2026-08-17,Pending
+SC-2024-0070,Writ Petition No. 8492 of 2024,2024-12-31,2024-12-31,Writ Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,6,5,3,2026-07-09,2026-08-16,Adjourned
+SC-2024-0071,Civil Appeal No. 4515 of 2021,2025-04-05,2025-04-05,Civil Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,5,2,10,2026-06-24,2026-08-29,Heard/Reserved
+SC-2024-0072,Civil Appeal No. 7030 of 2023,2025-12-03,2025-12-03,Civil Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,5,3,4,2026-06-20,2026-08-22,Pending
+SC-2024-0073,SLP (Civil) No. 7165 of 2022,2025-05-04,2025-05-04,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,10,3,7,2026-06-19,2026-08-17,Adjourned
+SC-2024-0074,Transfer Petition No. 3788 of 2024,2024-09-24,2024-09-24,Transfer Petition,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,2,3,5,2026-07-17,2026-08-11,Heard/Reserved
+SC-2024-0075,Writ Petition No. 9001 of 2022,2025-03-04,2025-03-04,Writ Petition,General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,2,2,3,2026-07-01,2026-08-15,Heard/Reserved
+SC-2024-0076,SLP (Criminal) No. 2649 of 2024,2024-09-20,2024-09-20,SLP (Criminal),General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,0,3,2,2026-07-09,2026-08-21,Pending
+SC-2024-0077,Writ Petition No. 4540 of 2023,2025-06-25,2025-06-25,Writ Petition,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,9,4,7,2026-07-14,2026-08-01,Pending
+SC-2024-0078,SLP (Criminal) No. 4251 of 2024,2024-11-01,2024-11-01,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,3,1,9,2026-06-28,2026-08-10,Adjourned
+SC-2024-0079,SLP (Criminal) No. 5970 of 2022,2024-05-11,2024-05-11,SLP (Criminal),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,3,2,3,2026-06-25,2026-08-07,Adjourned
+SC-2024-0080,Transfer Petition No. 1546 of 2022,2025-01-28,2025-01-28,Transfer Petition,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,1,2,3,2026-07-08,2026-08-30,Adjourned
+SC-2024-0081,Civil Appeal No. 1622 of 2023,2024-05-23,2024-05-23,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,9,4,1,2026-07-05,2026-08-31,Pending
+SC-2024-0082,SLP (Civil) No. 6299 of 2024,2024-07-05,2024-07-05,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,6,2,2,2026-07-11,2026-08-09,Heard/Reserved
+SC-2024-0083,SLP (Criminal) No. 9316 of 2024,2026-01-05,2026-01-05,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,10,4,1,2026-06-28,2026-09-15,Adjourned
+SC-2024-0084,Civil Appeal No. 7801 of 2021,2024-05-31,2024-05-31,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,1,8,2026-06-28,2026-08-24,Adjourned
+SC-2024-0085,SLP (Criminal) No. 2572 of 2022,2026-05-27,2026-05-27,SLP (Criminal),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,4,3,5,2026-06-29,2026-09-06,Pending
+SC-2024-0086,Transfer Petition No. 9013 of 2021,2025-03-24,2025-03-24,Transfer Petition,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,5,5,5,2026-06-21,2026-07-23,Adjourned
+SC-2024-0087,Civil Appeal No. 9075 of 2022,2025-10-14,2025-10-14,Civil Appeal,General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,5,5,2,2026-06-30,2026-07-26,Heard/Reserved
+SC-2024-0088,Criminal Appeal No. 6014 of 2022,2025-10-09,2025-10-09,Criminal Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,1,5,10,2026-07-15,2026-08-12,Adjourned
+SC-2024-0089,SLP (Criminal) No. 8017 of 2024,2025-11-23,2025-11-23,SLP (Criminal),General Litigation,New Delhi,Delhi,Supreme Court of India,Apex Court,2,4,4,2026-07-12,2026-07-24,Pending
+SC-2024-0090,Civil Appeal No. 5748 of 2022,2025-06-11,2025-06-11,Civil Appeal,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,1,1,7,2026-07-07,2026-07-29,Adjourned
+SC-2024-0091,SLP (Criminal) No. 8124 of 2022,2025-07-15,2025-07-15,SLP (Criminal),General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,1,2,10,2026-07-02,2026-09-03,Adjourned
+SC-2024-0092,SLP (Civil) No. 3987 of 2023,2026-05-21,2026-05-21,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,7,3,4,2026-07-02,2026-08-07,Adjourned
+SC-2024-0093,Civil Appeal No. 7921 of 2024,2024-09-21,2024-09-21,Civil Appeal,General Litigation,New Delhi,West Bengal,Supreme Court of India,Apex Court,8,4,6,2026-07-11,2026-08-03,Pending
+SC-2024-0094,SLP (Criminal) No. 2923 of 2024,2025-04-18,2025-04-18,SLP (Criminal),General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,7,2,4,2026-07-13,2026-09-04,Adjourned
+SC-2024-0095,SLP (Civil) No. 2566 of 2021,2024-09-22,2024-09-22,SLP (Civil),General Litigation,New Delhi,Karnataka,Supreme Court of India,Apex Court,7,4,5,2026-07-12,2026-08-18,Pending
+SC-2024-0096,Civil Appeal No. 9494 of 2022,2026-04-11,2026-04-11,Civil Appeal,General Litigation,New Delhi,Uttar Pradesh,Supreme Court of India,Apex Court,8,1,3,2026-07-01,2026-08-31,Adjourned
+SC-2024-0097,Writ Petition No. 9816 of 2023,2025-07-28,2025-07-28,Writ Petition,General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,2,3,4,2026-06-20,2026-07-29,Pending
+SC-2024-0098,SLP (Civil) No. 4844 of 2024,2024-09-11,2024-09-11,SLP (Civil),General Litigation,New Delhi,Tamil Nadu,Supreme Court of India,Apex Court,8,5,10,2026-07-14,2026-08-11,Pending
+SC-2024-0099,SLP (Criminal) No. 9551 of 2023,2024-07-13,2024-07-13,SLP (Criminal),General Litigation,New Delhi,Maharashtra,Supreme Court of India,Apex Court,8,5,1,2026-07-01,2026-09-06,Pending
+SC-2024-0100,Criminal Appeal No. 6436 of 2023,2026-06-02,2026-06-02,Criminal Appeal,General Litigation,New Delhi,Gujarat,Supreme Court of India,Apex Court,8,1,10,2026-06-26,2026-08-03,Pending

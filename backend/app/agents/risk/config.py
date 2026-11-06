@@ -21,6 +21,12 @@ NUMERIC_FEATURES = [
 ]
 TARGET_COLUMN = "adjournments_count"
 
+# Features the ML model may learn from. Excludes the target itself and anything derived
+# from it (priority_score and escalation_level are computed from adjournments_count),
+# which previously leaked the answer into training.
+LEAKY_FEATURES = {TARGET_COLUMN, "priority_score", "escalation_level"}
+MODEL_NUMERIC_FEATURES = [f for f in NUMERIC_FEATURES if f not in LEAKY_FEATURES]
+
 # Risk parameters
 HYBRID_WEIGHTS = {
     "ml": 0.7,

@@ -1,0 +1,171 @@
+{
+  "cases_total": 1200,
+  "cases_held_out_per_split": 300,
+  "splits": 10,
+  "stall_rate": 0.425,
+  "priority_and_feature_pipeline_seconds_all_cases": 0.013,
+  "rankers": {
+    "Manual (oldest case first)": {
+      "roc_auc": {
+        "mean": 0.513,
+        "std": 0.02
+      },
+      "precision_at_top_20pct": {
+        "mean": 0.432,
+        "std": 0.026
+      },
+      "review_to_catch_80pct": {
+        "mean": 0.803,
+        "std": 0.016
+      },
+      "review_to_catch_90pct": {
+        "mean": 0.892,
+        "std": 0.015
+      },
+      "effort_saved_vs_manual_80pct": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "effort_saved_vs_manual_90pct": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "Priority agent": {
+      "roc_auc": {
+        "mean": 0.564,
+        "std": 0.024
+      },
+      "precision_at_top_20pct": {
+        "mean": 0.495,
+        "std": 0.059
+      },
+      "review_to_catch_80pct": {
+        "mean": 0.735,
+        "std": 0.02
+      },
+      "review_to_catch_90pct": {
+        "mean": 0.86,
+        "std": 0.013
+      },
+      "effort_saved_vs_manual_80pct": {
+        "mean": 0.085,
+        "std": 0.02
+      },
+      "effort_saved_vs_manual_90pct": {
+        "mean": 0.036,
+        "std": 0.024
+      }
+    },
+    "Risk agent: rule engine": {
+      "roc_auc": {
+        "mean": 0.597,
+        "std": 0.024
+      },
+      "precision_at_top_20pct": {
+        "mean": 0.49,
+        "std": 0.037
+      },
+      "review_to_catch_80pct": {
+        "mean": 0.728,
+        "std": 0.019
+      },
+      "review_to_catch_90pct": {
+        "mean": 0.839,
+        "std": 0.023
+      },
+      "effort_saved_vs_manual_80pct": {
+        "mean": 0.094,
+        "std": 0.022
+      },
+      "effort_saved_vs_manual_90pct": {
+        "mean": 0.059,
+        "std": 0.028
+      }
+    },
+    "Risk agent: ML (leak-free)": {
+      "roc_auc": {
+        "mean": 0.519,
+        "std": 0.021
+      },
+      "precision_at_top_20pct": {
+        "mean": 0.458,
+        "std": 0.038
+      },
+      "review_to_catch_80pct": {
+        "mean": 0.8,
+        "std": 0.024
+      },
+      "review_to_catch_90pct": {
+        "mean": 0.898,
+        "std": 0.018
+      },
+      "effort_saved_vs_manual_80pct": {
+        "mean": 0.004,
+        "std": 0.023
+      },
+      "effort_saved_vs_manual_90pct": {
+        "mean": -0.006,
+        "std": 0.019
+      }
+    },
+    "Risk agent: hybrid (0.1 ML + 0.9 rule)": {
+      "roc_auc": {
+        "mean": 0.583,
+        "std": 0.022
+      },
+      "precision_at_top_20pct": {
+        "mean": 0.48,
+        "std": 0.028
+      },
+      "review_to_catch_80pct": {
+        "mean": 0.728,
+        "std": 0.021
+      },
+      "review_to_catch_90pct": {
+        "mean": 0.839,
+        "std": 0.022
+      },
+      "effort_saved_vs_manual_80pct": {
+        "mean": 0.094,
+        "std": 0.022
+      },
+      "effort_saved_vs_manual_90pct": {
+        "mean": 0.059,
+        "std": 0.028
+      }
+    },
+    "Proposed: supervised stall classifier": {
+      "roc_auc": {
+        "mean": 0.653,
+        "std": 0.035
+      },
+      "precision_at_top_20pct": {
+        "mean": 0.59,
+        "std": 0.061
+      },
+      "review_to_catch_80pct": {
+        "mean": 0.684,
+        "std": 0.025
+      },
+      "review_to_catch_90pct": {
+        "mean": 0.808,
+        "std": 0.019
+      },
+      "effort_saved_vs_manual_80pct": {
+        "mean": 0.147,
+        "std": 0.034
+      },
+      "effort_saved_vs_manual_90pct": {
+        "mean": 0.095,
+        "std": 0.027
+      }
+    }
+  },
+  "leakage_demo": {
+    "leaky_test_r2": 1.0,
+    "leaky_top_feature": "adjournments_count",
+    "leaky_top_feature_importance": 1.0,
+    "fixed_test_r2": 0.672
+  }
+}
