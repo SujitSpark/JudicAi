@@ -52,3 +52,10 @@ yarn-error.log*
 backend/tmp_*
 logs/
 
+
+# Local AI-assistant workspace files
+.antigravity/
+.agents/
+
+# Trained model artifacts (rebuilt on first run)
+*.pkl
