@@ -1,0 +1,702 @@
+[
+ {
+  "hearing_id": 1,
+  "case_internal_id": 1,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 2,
+  "case_internal_id": 2,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 3,
+  "case_internal_id": 3,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 4,
+  "case_internal_id": 4,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 5,
+  "case_internal_id": 5,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 6,
+  "case_internal_id": 6,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 7,
+  "case_internal_id": 7,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 8,
+  "case_internal_id": 8,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 9,
+  "case_internal_id": 9,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 10,
+  "case_internal_id": 10,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 11,
+  "case_internal_id": 11,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 12,
+  "case_internal_id": 12,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 13,
+  "case_internal_id": 13,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 14,
+  "case_internal_id": 14,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 15,
+  "case_internal_id": 15,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 16,
+  "case_internal_id": 16,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 17,
+  "case_internal_id": 17,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 18,
+  "case_internal_id": 18,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 19,
+  "case_internal_id": 19,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 20,
+  "case_internal_id": 20,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 21,
+  "case_internal_id": 21,
+  "hearing_date": "2026-12-04T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 22,
+  "case_internal_id": 22,
+  "hearing_date": "2026-12-01T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 23,
+  "case_internal_id": 23,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 24,
+  "case_internal_id": 24,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 25,
+  "case_internal_id": 25,
+  "hearing_date": "2026-12-07T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 26,
+  "case_internal_id": 26,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 27,
+  "case_internal_id": 27,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 28,
+  "case_internal_id": 28,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 29,
+  "case_internal_id": 29,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 30,
+  "case_internal_id": 30,
+  "hearing_date": "2026-12-06T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 31,
+  "case_internal_id": 31,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 32,
+  "case_internal_id": 32,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 33,
+  "case_internal_id": 33,
+  "hearing_date": "2026-12-01T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 34,
+  "case_internal_id": 34,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 35,
+  "case_internal_id": 35,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 36,
+  "case_internal_id": 36,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 37,
+  "case_internal_id": 37,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 38,
+  "case_internal_id": 38,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 39,
+  "case_internal_id": 39,
+  "hearing_date": "2026-12-01T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 40,
+  "case_internal_id": 40,
+  "hearing_date": "2026-12-05T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 41,
+  "case_internal_id": 41,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 42,
+  "case_internal_id": 42,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 43,
+  "case_internal_id": 43,
+  "hearing_date": "2026-12-01T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 44,
+  "case_internal_id": 44,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 45,
+  "case_internal_id": 45,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 46,
+  "case_internal_id": 46,
+  "hearing_date": "2026-11-30T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 47,
+  "case_internal_id": 47,
+  "hearing_date": "2026-12-01T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 48,
+  "case_internal_id": 48,
+  "hearing_date": "2026-12-03T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 49,
+  "case_internal_id": 49,
+  "hearing_date": "2026-11-30T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 50,
+  "case_internal_id": 50,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 51,
+  "case_internal_id": 51,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 52,
+  "case_internal_id": 52,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 53,
+  "case_internal_id": 53,
+  "hearing_date": "2026-11-30T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 54,
+  "case_internal_id": 54,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 55,
+  "case_internal_id": 55,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 56,
+  "case_internal_id": 56,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 57,
+  "case_internal_id": 57,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 58,
+  "case_internal_id": 58,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 59,
+  "case_internal_id": 59,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 60,
+  "case_internal_id": 60,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 61,
+  "case_internal_id": 61,
+  "hearing_date": "2026-11-29T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 62,
+  "case_internal_id": 62,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 63,
+  "case_internal_id": 63,
+  "hearing_date": "2026-12-02T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 64,
+  "case_internal_id": 64,
+  "hearing_date": "2026-12-03T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 65,
+  "case_internal_id": 65,
+  "hearing_date": "2026-12-05T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 66,
+  "case_internal_id": 66,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 67,
+  "case_internal_id": 67,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 68,
+  "case_internal_id": 68,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 69,
+  "case_internal_id": 69,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 70,
+  "case_internal_id": 70,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 71,
+  "case_internal_id": 71,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 72,
+  "case_internal_id": 72,
+  "hearing_date": "2026-12-07T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 73,
+  "case_internal_id": 73,
+  "hearing_date": "2026-12-05T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 74,
+  "case_internal_id": 74,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 75,
+  "case_internal_id": 75,
+  "hearing_date": "2026-12-01T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 76,
+  "case_internal_id": 76,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 77,
+  "case_internal_id": 77,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 78,
+  "case_internal_id": 78,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 79,
+  "case_internal_id": 79,
+  "hearing_date": "2026-11-25T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 80,
+  "case_internal_id": 80,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 81,
+  "case_internal_id": 81,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 82,
+  "case_internal_id": 82,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 83,
+  "case_internal_id": 83,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 84,
+  "case_internal_id": 84,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 85,
+  "case_internal_id": 85,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 86,
+  "case_internal_id": 86,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 87,
+  "case_internal_id": 87,
+  "hearing_date": "2026-11-30T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 88,
+  "case_internal_id": 88,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 89,
+  "case_internal_id": 89,
+  "hearing_date": "2026-11-26T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 90,
+  "case_internal_id": 90,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 91,
+  "case_internal_id": 91,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 92,
+  "case_internal_id": 92,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 93,
+  "case_internal_id": 93,
+  "hearing_date": "2026-11-27T00:00:00",
+  "slot_time": "10:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 94,
+  "case_internal_id": 94,
+  "hearing_date": "2026-11-30T00:00:00",
+  "slot_time": "14:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 95,
+  "case_internal_id": 95,
+  "hearing_date": "2026-11-24T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 96,
+  "case_internal_id": 96,
+  "hearing_date": "2026-11-30T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 97,
+  "case_internal_id": 97,
+  "hearing_date": "2026-12-04T00:00:00",
+  "slot_time": "12:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 98,
+  "case_internal_id": 98,
+  "hearing_date": "2026-12-02T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 99,
+  "case_internal_id": 99,
+  "hearing_date": "2026-12-04T00:00:00",
+  "slot_time": "11:00",
+  "status": "Scheduled"
+ },
+ {
+  "hearing_id": 100,
+  "case_internal_id": 100,
+  "hearing_date": "2026-11-28T00:00:00",
+  "slot_time": "15:00",
+  "status": "Scheduled"
+ }
+]

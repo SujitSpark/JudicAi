@@ -5,6 +5,7 @@ interface Case {
   case_number: string;
   case_type: string;
   adj_risk_score: number;
+  priority_score: number;
 }
 
 interface PriorityTableProps {
@@ -24,7 +25,7 @@ export default function PriorityTable({ cases, onSelectCase, limit = 5 }: Priori
             <th className="pb-4 pt-2 px-1">Case ID</th>
             <th className="pb-4 pt-2">Case Title</th>
             <th className="pb-4 pt-2">Category</th>
-            <th className="pb-4 pt-2 text-right">Risk Score</th>
+            <th className="pb-4 pt-2 text-right">Priority</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-outline-variant/5">
@@ -46,12 +47,12 @@ export default function PriorityTable({ cases, onSelectCase, limit = 5 }: Priori
                   <div 
                     className={clsx(
                       "h-full transition-all duration-1000", 
-                      c.adj_risk_score >= 80 ? "bg-red-600" : c.adj_risk_score > 45 ? "bg-yellow-500" : "bg-green-500"
+                      c.priority_score >= 80 ? "bg-red-600" : c.priority_score > 60 ? "bg-yellow-500" : "bg-green-500"
                     )} 
-                    style={{ width: `${Math.min(c.adj_risk_score, 100)}%` }} 
+                    style={{ width: `${Math.min(c.priority_score, 100)}%` }} 
                   />
                 </div>
-                <span className="font-mono text-sm font-bold text-primary w-8">{c.adj_risk_score.toFixed(0)}%</span>
+                <span className="font-mono text-sm font-bold text-primary w-8">{c.priority_score.toFixed(0)}</span>
               </td>
             </tr>
           ))}

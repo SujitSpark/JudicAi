@@ -106,8 +106,8 @@ def priority_risk_node(state: Dict):
     r_json = run_ml_risk()
     r_results = json.loads(r_json)
     if r_results.get("status") == "success":
-        sample_output = r_results.get("sample_output", [])
-        for res in sample_output:
+        # Sync every scored case (sample_output only holds the first 10).
+        for res in r_results.get("results", []):
             # Match by case_number
             db_case = db.query(Case).filter(Case.case_number == res['case_number']).first()
             if db_case:
@@ -117,7 +117,7 @@ def priority_risk_node(state: Dict):
     db.commit()
     # Populate state for next nodes
     state["priority_scores"] = {str(r['case_id']): r['priority_score'] for r in p_results}
-    state["risk_scores"] = {r.get('case_number'): r.get('adjournment_risk_score', 0.0) for r in r_results.get("sample_output", [])}
+    state["risk_scores"] = {r.get('case_number'): r.get('adjournment_risk_score', 0.0) for r in r_results.get("results", [])}
     
     # Log the action
     db.add(AgentLog(

@@ -1,11 +1,7 @@
 import { useCasesStore } from '../store/casesStore';
 import { 
-  XAxis, 
   Tooltip, 
   ResponsiveContainer, 
-  BarChart, 
-  Bar, 
-  CartesianGrid,
   PieChart,
   Pie,
   Cell,
@@ -15,6 +11,7 @@ import { TrendingUp, Scale, AlertCircle, Clock, ChevronRight, Zap, Loader2, PieC
 import { Link } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { useEffect } from 'react';
+import { IS_DEMO } from '../lib/api';
 import JudicialLoader from '../components/JudicialLoader';
 import StatCard from '../components/shared/StatCard';
 import PriorityTable from '../components/shared/PriorityTable';
@@ -37,13 +34,14 @@ export default function DashboardPage() {
 
   if (isLoading && cases.length === 0) return <JudicialLoader />;
 
-  const priorityCases = cases.filter(c => c.priority_score > 70);
+  const priorityCases = [...cases].sort((a, b) => b.priority_score - a.priority_score);
+  const riskRank = topCriticalCase ? cases.filter(c => c.adj_risk_score > topCriticalCase.adj_risk_score).length + 1 : 0;
 
   const stats = [
-    { label: "Total Backlog", value: kpis?.total_cases.toLocaleString() || "0", icon: Scale, trend: kpis?.trends?.total || "+0.0%" },
-    { label: "Critical Risk", value: kpis?.high_risk_cases || "0", icon: AlertCircle, trend: kpis?.trends?.risk || "Stable", isCritical: (kpis?.high_risk_cases || 0) > 0 },
-    { label: "Avg. Priority", value: kpis?.avg_priority || "0.0", icon: Clock, trend: kpis?.trends?.priority || "Normal" },
-    { label: "Memos Ready", value: kpis?.memos_ready || "0", icon: TrendingUp, trend: kpis?.trends?.memos || "Optimal" },
+    { label: "Pending cases", value: kpis?.total_cases.toLocaleString() || "0", icon: Scale, trend: kpis?.trends?.total || "" },
+    { label: "Risk score 80+", value: kpis?.high_risk_cases || "0", icon: AlertCircle, trend: kpis?.trends?.risk || "", isCritical: (kpis?.high_risk_cases || 0) > 0 },
+    { label: "Avg. priority (0-100)", value: kpis?.avg_priority || "0.0", icon: Clock, trend: kpis?.trends?.priority || "" },
+    { label: "Memos drafted", value: kpis?.memos_ready || "0", icon: TrendingUp, trend: kpis?.trends?.memos || "" },
   ];
 
   const caseTypeData = Object.entries(
@@ -58,7 +56,7 @@ export default function DashboardPage() {
       <div className="flex flex-col gap-2 border-b border-outline-variant/10 pb-8">
         <h1 className="text-5xl font-serif font-bold tracking-tight text-primary">Dashboard</h1>
         <p className="text-on-surface/40 font-sans font-medium uppercase tracking-[0.2em] text-[10px] font-black">
-          Operational Intelligence • THE MODERN MAGISTRATE
+          Output of the JudicAI pipeline: priority, risk, schedule and memos
         </p>
       </div>
 
@@ -73,7 +71,7 @@ export default function DashboardPage() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <span className="px-3 py-1 bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full animate-pulse">
-                      Critical Risk Event
+                      Highest adjournment risk
                     </span>
                     <span className="text-[10px] font-mono font-bold text-on-surface/40 uppercase tracking-tighter">
                       Ref: {topCriticalCase.case_id}
@@ -83,15 +81,15 @@ export default function DashboardPage() {
                     {topCriticalCase.case_number}
                   </h2>
                   <p className="text-on-surface/60 font-sans text-lg max-w-2xl leading-relaxed italic">
-                    This case has reached the 85th percentile for adjournment risk and requires immediate bench allocation or settlement review.
+                    Ranked #{riskRank} of {cases.length} by the Risk agent, with {topCriticalCase.adjournments_count} adjournments over {(topCriticalCase.age_days / 365).toFixed(1)} years.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   {[
-                    { label: "Risk Score", value: `${topCriticalCase.adj_risk_score.toFixed(0)}%`, color: "text-red-600" },
+                    { label: "Risk score", value: `${topCriticalCase.adj_risk_score.toFixed(0)}/100`, color: "text-red-600" },
                     { label: "Adjournments", value: topCriticalCase.adjournments_count, color: "text-primary" },
-                    { label: "Age", value: `${topCriticalCase.age_days} days`, color: "text-primary" },
+                    { label: "Priority", value: `${topCriticalCase.priority_score.toFixed(0)}/100`, color: "text-primary" },
                     { label: "Filing", value: new Date(topCriticalCase.filing_date).getFullYear(), color: "text-primary" },
                   ].map((stat, i) => (
                     <div key={i} className="space-y-1">
@@ -104,15 +102,15 @@ export default function DashboardPage() {
 
               <div className="w-full lg:w-[400px] space-y-6">
                 <div className="p-6 bg-primary text-white space-y-4 shadow-2xl">
-                  <h4 className="font-sans font-black uppercase text-[10px] tracking-widest text-secondary-fixed">Recommended Action</h4>
+                  <h4 className="font-sans font-black uppercase text-[10px] tracking-widest text-secondary-fixed">Why it is flagged</h4>
                   <p className="text-sm font-serif italic text-white/80 leading-relaxed">
-                    "Group this petition with similar SLPs in the 2024 cause list to mitigate systemic delay."
+                    {Math.max(topCriticalCase.adj_risk_score, topCriticalCase.priority_score) > 65 ? 'Its score is above the 65-point cut-off, so the Memo agent drafted a listing memo for it.' : 'Its scores are below the 65-point memo cut-off, so no memo was drafted.'}
                   </p>
                   <button 
                     onClick={() => selectCase(topCriticalCase.case_id)}
                     className="w-full bg-white text-primary py-3 text-[10px] font-black uppercase tracking-widest hover:bg-secondary-fixed transition-colors"
                   >
-                    Initiate Deep Review
+                    Open case and memo
                   </button>
                 </div>
               </div>
@@ -133,18 +131,17 @@ export default function DashboardPage() {
         <div className="lg:col-span-2 judicial-card p-8 space-y-6">
           <div className="flex items-center justify-between pb-4 border-b border-outline-variant/5">
             <div className="flex items-center gap-3">
-              <h3 className="font-serif text-xl font-bold text-primary">Priority Registry</h3>
-              <span className="px-2 py-0.5 bg-secondary-container text-secondary text-[9px] font-black uppercase rounded-[2px]">Urgent</span>
+              <h3 className="font-serif text-xl font-bold text-primary">Top 5 by priority</h3>
             </div>
             <Link to="/priority-queue" className="text-[10px] font-sans font-black text-primary/40 uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1 group">
-              View Full Queue <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              Full queue <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
           
           <PriorityTable cases={priorityCases} onSelectCase={selectCase} />
         </div>
 
-        {/* Quick Insights */}
+        {/* From this data */}
         <div className="space-y-6">
           <div className="judicial-card p-8 bg-primary text-white h-full relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:scale-150 transition-transform duration-700" />
@@ -152,12 +149,12 @@ export default function DashboardPage() {
             <div className="relative space-y-8">
               <div className="flex items-center gap-3 pb-4 border-b border-white/10">
                 <Zap className="w-5 h-5 text-secondary-fixed" />
-                <h3 className="font-serif text-xl font-bold">Quick Insights</h3>
+                <h3 className="font-serif text-xl font-bold">From this data</h3>
               </div>
               
               <div className="space-y-6">
                 {insights.length === 0 ? (
-                  <div className="py-4 text-center italic text-white/40 text-xs">Awaiting data analysis...</div>
+                  <div className="py-4 text-center italic text-white/40 text-xs">No insights yet.</div>
                 ) : (
                   insights.map((insight, i) => (
                     <InsightCard key={i} insight={insight} />
@@ -165,60 +162,29 @@ export default function DashboardPage() {
                 )}
               </div>
               
-              <div className="pt-6">
+              {!IS_DEMO && <div className="pt-6">
                 <button 
                   onClick={() => runAnalysis()}
                   disabled={isLoading}
                   className="w-full bg-secondary-fixed text-primary border border-secondary-fixed py-2.5 rounded-sm text-[10px] font-sans font-black uppercase tracking-[0.2em] hover:bg-white hover:text-primary transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                 >
                   {isLoading ? <Loader2 className="w-3 h-3 animate-spin"/> : <Zap className="w-3 h-3" />}
-                  {isLoading ? 'Processing...' : 'Initiate Intelligence Pipeline'}
+                  {isLoading ? 'Running...' : 'Run pipeline'}
                 </button>
-              </div>
+              </div>}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Analysis BarChart */}
-        <div className="judicial-card p-8">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-outline-variant/5">
-            <h3 className="font-serif text-xl font-bold text-primary">Active Caseload Risk Analysis</h3>
-            <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">Simulation Agent Mapping</span>
-          </div>
-          <div className="h-[300px] w-full">
-            {(() => {
-              const riskData = [
-                { category: 'Baseline Risk', count: cases.filter(c => c.adj_risk_score <= 40).length },
-                { category: 'Elevated Risk', count: cases.filter(c => c.adj_risk_score > 40 && c.adj_risk_score <= 75).length },
-                { category: 'Red Zone', count: cases.filter(c => c.adj_risk_score >= 80).length },
-              ];
-              return (
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={riskData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#00003c" opacity={0.05} />
-                    <XAxis dataKey="category" tick={{ fontSize: 10, fill: '#767684', fontWeight: 'bold' }} axisLine={false} tickLine={false} />
-                    <Tooltip 
-                      cursor={{fill: '#fcf9f4'}}
-                      contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', borderRadius: '4px' }}
-                      itemStyle={{ color: '#00003c', fontSize: '12px', fontWeight: 'bold' }}
-                    />
-                    <Bar dataKey="count" fill="#00003c" radius={[4, 4, 0, 0]} barSize={60} />
-                  </BarChart>
-                </ResponsiveContainer>
-              );
-            })()}
-          </div>
-        </div>
-
+      <div>
         {/* Case Type Circular Chart */}
         <div className="judicial-card p-8">
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-outline-variant/5">
-            <h3 className="font-serif text-xl font-bold text-primary">Case Composition</h3>
+            <h3 className="font-serif text-xl font-bold text-primary">Cases by type</h3>
             <div className="flex items-center gap-2">
               <PieIcon className="w-3 h-3 text-secondary-fixed" />
-              <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">Type-Based Distribution</span>
+              <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">{cases.length} cases</span>
             </div>
           </div>
           <div className="h-[300px] w-full">
@@ -257,16 +223,15 @@ export default function DashboardPage() {
       <div className="judicial-card p-8">
         <div className="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/5">
           <div className="flex items-center gap-3">
-            <h3 className="font-serif text-xl font-bold text-primary">Agent Intelligence Log</h3>
-            <span className="animate-pulse w-2 h-2 rounded-full bg-secondary-fixed shadow-[0_0_8px_rgba(115,92,0,0.5)]"></span>
+            <h3 className="font-serif text-xl font-bold text-primary">Pipeline log</h3>
           </div>
-          <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">Real-time Pipeline Audit</span>
+          <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">One entry per pipeline step</span>
         </div>
         
         <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
           {agentLogs.length === 0 ? (
             <div className="py-12 text-center italic font-serif text-on-surface/30 border border-dashed border-outline-variant/20 rounded-sm">
-              No recent agent activity recorded. Initiate pipeline to begin.
+              No pipeline runs yet.
             </div>
           ) : (
             agentLogs.map((log) => (

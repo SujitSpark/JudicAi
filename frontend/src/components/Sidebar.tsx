@@ -3,15 +3,15 @@ import {
   ListFilter, 
   Calendar, 
   Upload, 
-  Settings, 
-  ShieldCheck, 
   Gavel, 
   BarChart3, 
   StickyNote 
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import judicaiIcon from '../assets/judicai-icon.svg';
 import { clsx } from 'clsx';
 import { useAuthStore } from '../store/authStore';
+import { IS_DEMO } from '../lib/api';
 
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -27,21 +27,20 @@ export default function Sidebar() {
   const user = useAuthStore((s) => s.user);
   
   // Dynamic User UI
-  const displayName = user?.fullName || 'Justice Official';
-  const displayRole = user?.role ? (user.role.charAt(0).toUpperCase() + user.role.slice(1)) : 'Official';
+  const displayName = user?.fullName || (IS_DEMO ? 'Demo viewer' : 'Signed out');
+  const displayRole = user?.role ? (user.role.charAt(0).toUpperCase() + user.role.slice(1)) : (IS_DEMO ? 'Read-only' : '');
   
   // Better Initials: e.g. "Sujit Shiravle" -> "SS", "Registrar" -> "RE"
   const initials = user?.fullName 
     ? user.fullName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()
-    : 'JD';
+    : 'JA';
 
 
   return (
     <aside className="w-64 bg-surface-container-low h-screen flex flex-col p-6 overflow-hidden">
-      <div className="flex items-center gap-3 mb-10 px-2 transition-all hover:opacity-90">
-        <div className="w-10 h-10 bg-primary/95 flex items-center justify-center rounded-sm shadow-md ring-1 ring-white/10">
-          <ShieldCheck className="text-secondary-container w-6 h-6" />
-        </div>
+      <div className="flex items-center gap-[6px] mb-10 px-2">
+        {/* Lockup: icon = 0.9 x wordmark size (20px -> 18px) */}
+        <img src={judicaiIcon} alt="" className="w-[18px] h-[18px]" />
         <div className="flex flex-col">
           <span className="font-serif text-xl font-bold tracking-tight text-primary">JudicAI</span>
           <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-on-surface/50 font-black">Modern Magistrate</span>
@@ -67,7 +66,7 @@ export default function Sidebar() {
       </nav>
 
       <div className="mt-auto pt-6 border-t border-outline-variant/10 px-2 group">
-        <div className="flex items-center gap-3 cursor-pointer">
+        <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/20 overflow-hidden group-hover:border-primary/30 transition-all">
             <span className="text-xs font-bold text-primary opacity-80">{initials}</span>
           </div>
@@ -75,7 +74,6 @@ export default function Sidebar() {
             <span className="text-xs font-semibold text-primary truncate leading-tight capitalize">{displayName}</span>
             <span className="text-[9px] text-on-surface/50 font-bold uppercase tracking-wider">{displayRole}</span>
           </div>
-          <Settings className="w-4 h-4 text-on-surface/30 group-hover:text-primary transition-colors hover:rotate-45" />
         </div>
       </div>
     </aside>

@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { riskBand, benchLabel } from '../lib/risk';
 import { useCasesStore } from '../store/casesStore';
 import { clsx } from 'clsx';
-import { 
-  MoreVertical, 
-  Filter, 
-  Plus, 
-  Download
-} from 'lucide-react';
+import { X, Download } from 'lucide-react';
 
 export default function PriorityPage() {
-  const cases = useCasesStore((s) => s.cases);
+  const allCases = useCasesStore((s) => s.cases);
+  const fetchCases = useCasesStore((s) => s.fetchCases);
+  useEffect(() => { if (allCases.length === 0) fetchCases(); }, [allCases.length, fetchCases]);
+  // Ranked by the Priority agent's score, highest first.
+  const cases = useMemo(() => [...allCases].sort((a, b) => b.priority_score - a.priority_score), [allCases]);
   const selectCase = useCasesStore((s) => s.selectCase);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
@@ -33,20 +33,10 @@ export default function PriorityPage() {
         <div className="space-y-1">
           <h1 className="text-5xl font-serif font-bold tracking-tight text-primary">Priority Queue</h1>
           <p className="text-on-surface/40 font-sans font-medium uppercase tracking-[0.2em] text-[10px] font-black">
-            High-Stakes Registry • AI-Driven Judicial Priority
+            All cases ranked by priority score (0-100), highest first
           </p>
         </div>
         
-        <div className="flex items-center gap-4">
-          <button className="btn-secondary flex items-center gap-2 group py-2">
-            <Filter className="w-4 h-4 transition-transform group-hover:rotate-180" />
-            <span className="text-[10px] font-black uppercase tracking-widest">Filter Registry</span>
-          </button>
-          <button className="btn-primary flex items-center gap-2 py-2">
-            <Plus className="w-4 h-4" />
-            <span className="text-[10px] font-black uppercase tracking-widest">Add Case</span>
-          </button>
-        </div>
       </div>
 
       <div className="judicial-card border-none bg-surface-container-lowest/50 backdrop-blur-sm overflow-hidden ring-1 ring-outline-variant/5">
@@ -64,10 +54,9 @@ export default function PriorityPage() {
               <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[140px] border-b border-outline-variant/10">Case ID</th>
               <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Petitioner / Matter</th>
               <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[120px] border-b border-outline-variant/10">Case Type</th>
-              <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[160px] border-b border-outline-variant/10">Judge Assigned</th>
-              <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[100px] text-center border-b border-outline-variant/10">Score</th>
+              <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[160px] border-b border-outline-variant/10">Bench</th>
+              <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[100px] text-center border-b border-outline-variant/10">Priority</th>
               <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] w-[120px] text-center border-b border-outline-variant/10">Risk</th>
-              <th className="px-6 py-4 w-[60px] border-b border-outline-variant/10"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-outline-variant/5">
@@ -95,17 +84,17 @@ export default function PriorityPage() {
                 <td className="px-6 py-5">
                   <div className="flex flex-col gap-1">
                     <span className="font-serif text-[15px] font-bold text-primary group-hover:text-secondary tracking-tight transition-colors">{c.case_number}</span>
-                    <span className="text-[10px] font-sans text-on-surface/40 font-bold uppercase tracking-tight">Filed: {new Date(c.filing_date).toLocaleDateString()} • Hearings: {c.adjournments_count}</span>
+                    <span className="text-[10px] font-sans text-on-surface/40 font-bold uppercase tracking-tight">Filed: {new Date(c.filing_date).toLocaleDateString()} • Adjournments: {c.adjournments_count}</span>
                   </div>
                 </td>
                 <td className="px-6 py-5">
                   <span className="text-[10px] font-sans font-black uppercase text-on-surface/60 bg-surface-container-low px-2 py-1 rounded-sm">{c.case_type}</span>
                 </td>
                 <td className="px-6 py-5">
-                  <span className="text-[11px] font-sans font-bold text-primary/70">{c.assigned_user_id || 'Unassigned'}</span>
+                  <span className="text-[11px] font-sans font-bold text-primary/70">{benchLabel(c.assigned_user_id)}</span>
                 </td>
                 <td className="px-6 py-5 text-center">
-                  <span className="font-mono text-[13px] font-bold text-primary">{(c.priority_score * 100).toFixed(0)}</span>
+                  <span className="font-mono text-[13px] font-bold text-primary">{c.priority_score.toFixed(0)}</span>
                 </td>
                 <td className="px-6 py-5 text-center">
                   <span className={clsx(
@@ -114,13 +103,8 @@ export default function PriorityPage() {
                     c.adj_risk_score >= 60 ? "bg-secondary-container text-secondary border-secondary/20" :
                     "bg-surface-container-neutral text-on-surface/50 border-outline-variant/10"
                   )}>
-                    {c.adj_risk_score >= 80 ? 'CRITICAL' : c.adj_risk_score >= 60 ? 'HIGH' : 'STANDARD'}
+                    {riskBand(c.adj_risk_score)} · {c.adj_risk_score.toFixed(0)}
                   </span>
-                </td>
-                <td className="px-6 py-5 text-right" onClick={(e) => e.stopPropagation()}>
-                  <button className="p-2 hover:bg-surface-container-high rounded-sm transition-colors">
-                    <MoreVertical className="w-4 h-4 text-on-surface/30 group-hover:text-primary transition-colors" />
-                  </button>
                 </td>
               </tr>
             ))}
@@ -163,7 +147,7 @@ export default function PriorityPage() {
             onClick={() => setSelectedIds([])}
             className="ml-4 hover:bg-white/10 p-1.5 rounded-full transition-colors"
           >
-            <Plus className="w-4 h-4 rotate-45" />
+            <X className="w-4 h-4" />
           </button>
         </div>
       )}

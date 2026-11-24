@@ -5,8 +5,6 @@ import {
   Filter, 
   Download, 
   ChevronDown, 
-  MoreHorizontal,
-  Calendar,
   User,
   Gavel,
   X,
@@ -58,12 +56,19 @@ export default function AllCasesPage() {
   const uniqueStatuses = useMemo(() => Array.from(new Set(cases.map(c => c.status))), [cases]);
 
 
+  // Exports the cases currently shown (after filters) as CSV.
   const handleExport = () => {
-    toast.promise(new Promise(resolve => setTimeout(resolve, 1500)), {
-      loading: 'Generating archival report...',
-      success: 'Registry archive exported successfully (CSV)',
-      error: 'Failed to generate archive',
-    });
+    if (filteredCases.length === 0) return;
+    const cols = ['case_id', 'case_number', 'case_type', 'status', 'filing_date', 'last_hearing_date', 'next_hearing_date', 'adjournments_count', 'age_days', 'priority_score', 'adj_risk_score', 'district', 'state'] as const;
+    const esc = (v: unknown) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const csv = [cols.join(','), ...filteredCases.map(c => cols.map(k => esc(c[k])).join(','))].join('\n');
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `judicai_cases_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success(`Exported ${filteredCases.length} cases`);
   };
 
   if (isLoading) return <JudicialLoader />;
@@ -76,7 +81,7 @@ export default function AllCasesPage() {
           <div className="space-y-1">
             <h1 className="text-5xl font-serif font-bold tracking-tight text-primary">All Cases</h1>
             <p className="text-on-surface/40 font-sans font-medium uppercase tracking-[0.2em] text-[10px] font-black">
-              Comprehensive Registry • Central Judicial Repository
+              {filteredCases.length} of {cases.length} cases · click a row for details
             </p>
           </div>
           
@@ -86,11 +91,7 @@ export default function AllCasesPage() {
               className="btn-secondary flex items-center gap-2 py-2"
             >
               <Download className="w-4 h-4" />
-              <span className="text-[10px] font-black uppercase tracking-widest">Export Archive</span>
-            </button>
-            <button className="btn-primary flex items-center gap-2 py-2">
-              <Gavel className="w-4 h-4" />
-              <span className="text-[10px] font-black uppercase tracking-widest">New Filing</span>
+              <span className="text-[10px] font-black uppercase tracking-widest">Export CSV</span>
             </button>
           </div>
         </div>
@@ -207,11 +208,6 @@ export default function AllCasesPage() {
             </div>
 
             
-            <button className="flex items-center gap-2 px-3 py-2 hover:bg-surface-container-neutral rounded-sm transition-colors group cursor-not-allowed opacity-50">
-              <Calendar className="w-3.5 h-3.5 text-on-surface/30" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-on-surface/60">Date Range</span>
-              <ChevronDown className="w-3 h-3 text-on-surface/20" />
-            </button>
           </div>
 
           {(searchQuery || typeFilter || statusFilter || districtFilter) && (
@@ -220,7 +216,7 @@ export default function AllCasesPage() {
               className="flex items-center gap-2 px-4 py-2 bg-secondary-container/30 hover:bg-secondary-container transition-colors rounded-sm group"
             >
               <X className="w-3.5 h-3.5 text-secondary" />
-              <span className="text-[9px] font-black uppercase tracking-widest text-secondary">Reset All Analytics</span>
+              <span className="text-[9px] font-black uppercase tracking-widest text-secondary">Clear filters</span>
             </button>
           )}
 
@@ -238,9 +234,8 @@ export default function AllCasesPage() {
                   <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Type</th>
                   <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Filing Date</th>
                   <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Last Hearing</th>
-                  <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Judge</th>
+                  <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Location</th>
                   <th className="px-6 py-4 text-[10px] font-black text-on-surface/30 uppercase tracking-[0.2em] border-b border-outline-variant/10">Status</th>
-                  <th className="px-6 py-4 border-b border-outline-variant/10"></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-outline-variant/5">
@@ -259,11 +254,6 @@ export default function AllCasesPage() {
                     <td className="px-6 py-5 align-top max-w-sm">
                       <div className="flex flex-col gap-1">
                         <span className="font-serif text-sm font-bold text-primary group-hover:text-secondary tracking-tight transition-colors">{c.case_number}</span>
-                        <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <button className="text-[9px] font-black uppercase tracking-tighter text-secondary hover:underline underline-offset-2">View Dossier</button>
-                          <span className="text-on-surface/20">•</span>
-                          <button className="text-[9px] font-black uppercase tracking-tighter text-primary/40 hover:text-primary">Download Brief</button>
-                        </div>
                       </div>
                     </td>
                     <td className="px-6 py-5 align-top text-[11px] font-sans font-bold text-on-surface/60">{c.case_type}</td>
@@ -275,17 +265,12 @@ export default function AllCasesPage() {
                     <td className="px-6 py-5 align-top">
                       <span className={clsx(
                         "text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-sm ring-1 ring-inset",
-                        c.status === 'Pending' ? "bg-amber-50 text-amber-700 ring-amber-100" :
-                        c.status === 'Adjourned' ? "bg-red-50 text-red-700 ring-red-100" :
+                        c.status?.toUpperCase() === 'PENDING' ? "bg-amber-50 text-amber-700 ring-amber-100" :
+                        c.status?.toUpperCase() === 'ADJOURNED' ? "bg-red-50 text-red-700 ring-red-100" :
                         "bg-blue-50 text-blue-700 ring-blue-100"
                       )}>
                         {c.status}
                       </span>
-                    </td>
-                    <td className="px-6 py-5 text-right">
-                      <button className="p-2 hover:bg-surface-container-high rounded-sm transition-colors">
-                        <MoreHorizontal className="w-4 h-4 text-on-surface/20 group-hover:text-primary" />
-                      </button>
                     </td>
                   </tr>
                 ))}

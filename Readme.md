@@ -1,3 +1,5 @@
+<img src="frontend/public/favicon.svg" alt="JudicAI logo" width="64" height="64">
+
 # JudicAI | The Modern Magistrate
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,31 +10,35 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8.svg)](https://tailwindcss.com/)
 [![CI](https://github.com/SujitSpark/JudicAi/actions/workflows/ci.yml/badge.svg)](https://github.com/SujitSpark/JudicAi/actions/workflows/ci.yml)
 
-**JudicAI** is a high-fidelity judicial intelligence system engineered for supreme and upper judiciaries. It serves as an **Intelligence Layer** that sits above existing registries to solve systemic backlogs through multi-agent orchestration, predictive risk scoring, and automated scheduling.
+**JudicAI** is a hackathon prototype (built in 8 hours) that helps a court registry decide which pending cases need attention first. It ranks cases by priority and by the risk that the next hearing gets adjourned, suggests hearing slots, and drafts short listing memos for the most urgent cases.
+
+> All data in this repository is **synthetic**: 100 generated cases (`data/supreme_court_100.csv`) and a 1,200-case benchmark derived from them. No real court records are used.
 
 ---
 
-## 🏛️ Core Vision
-The judiciary faces an unprecedented backlog of millions of cases. JudicAI isn't just a management tool; it's a **predictive engine** designed to identify high-risk cases before they stall, ensuring that "Justice Delayed" is no longer the norm.
+## 🏛️ Why
+India has a backlog of over 50 million pending cases, and much of the delay comes from repeated adjournments. JudicAI explores whether simple, explainable scoring of case metadata (age, adjournments, case type, parties) can surface the cases most likely to stall, so a registry can act on them earlier.
 
 ---
 
-## ✨ Key Intelligence Modules
+## ✨ What it does
 
-| Module | Description | Impact |
+| Step | How it works | Notes |
 | :--- | :--- | :--- |
-| **⚖️ AI-Priority Registry** | Orchestrates Intake → Priority → Risk agents to rank the case registry. | Benchmarked on 1,200 cases ([results](benchmarks/README.md)) |
-| **🔍 Risk Engine** | Hybrid rule + XGBoost adjournment-risk score with an **80-point critical threshold**. | Proactively flags "Stall Warnings" |
-| **📜 Automated Memos** | Generates legal summaries and chamber review memos using LLM orchestration. | Speeds up judge preparation |
-| **📅 Smart Allocation** | Dynamically assigns cases based on judge capacity and historical specialization. | Optimizes bench utilization |
-| **🌗 Premium UI** | "Deep Ink & Brass" aesthetics providing a professional, distraction-free interface. | Enhanced focus for judicial staff |
+| **Intake** | Reads a CSV of case records, cleans and validates it, derives case age. | CSV only |
+| **Priority** | Weighted rule score (0-100) from age, adjournments, case type and parties. | Benchmarked ([results](benchmarks/README.md)) |
+| **Adjournment risk** | Rule engine blended with an XGBoost model (0.9 rule + 0.1 ML); 80+ is flagged critical. | The ML part alone is near random after the leakage fix |
+| **Scheduling** | A genetic algorithm (DEAP) assigns hearing slots, balancing judge load. | |
+| **Memos** | Drafts a short listing memo for cases above 65 priority or risk with Gemma 3 12B run locally through Ollama; falls back to a template if Ollama isn't running. | Only step that uses an LLM |
+
+The steps run in a fixed order as a LangGraph `StateGraph` (`backend/app/core/supervisor.py`); the "supervisor" is a rule-based router, not an LLM.
 
 ---
 
 ## 📊 Benchmark & Testing
 
 JudicAI's triage agents are evaluated on a **1,200-case synthetic benchmark** modelled on
-100 real Supreme Court cases (see [`benchmarks/`](benchmarks/README.md)), against the manual
+100 synthetic seed cases in the style of Supreme Court matters (see [`benchmarks/`](benchmarks/README.md)), against the manual
 "oldest case first" order a registry clerk would use:
 
 | Ranking | ROC-AUC | Precision @ top 20% | Review effort saved |
@@ -52,26 +58,16 @@ runs in CI.
 
 ```mermaid
 graph TD
-    subgraph "Data Ingestion"
-        A[Case Files / PDF / CSV] --> B[Intake Agent]
+    A[Case CSV] --> B[Intake]
+    subgraph "LangGraph pipeline (fixed order)"
+        B --> C[Priority + risk scoring]
+        C --> D[Delay pattern analysis]
+        D --> E[Scheduler: genetic algorithm]
+        E --> F[Memo: Gemma 3 via Ollama]
     end
-
-    subgraph "JudicAI Core (Multi-Agent)"
-        B --> C{Supervisor Agent}
-        C --> D[Priority Agent]
-        C --> E[Risk Agent]
-        C --> F[Memo Agent]
-    end
-
-    subgraph "Storage & API"
-        D & E & F --> G[(PostgreSQL / SQLite)]
-        G --> H[FastAPI Backend]
-    end
-
-    subgraph "Visual Interface"
-        H --> I[Vite + React Dashboard]
-        I --> J[Judicial Insights Dashboard]
-    end
+    F --> G[(SQLite / PostgreSQL)]
+    G --> H[FastAPI backend]
+    H --> I[React dashboard]
 ```
 
 ### 🧩 Sub-System Component Architecture & Flows
@@ -124,9 +120,24 @@ python scripts/seed_supreme_court.py
 
 ---
 
+### 4. Frontend-only demo (no backend)
+`frontend/public/demo/` holds a static snapshot of the pipeline's output on the 100 synthetic cases.
+Build with `VITE_DEMO=true` to serve the dashboard from it, read-only, with a "synthetic data" banner:
+```bash
+cd frontend
+VITE_DEMO=true npm run build   # deploy frontend/dist to Vercel, Netlify or GitHub Pages
+```
+To refresh the snapshot, seed a database and export it:
+```bash
+DATABASE_URL=sqlite:///demo.db python scripts/seed_supreme_court.py
+DATABASE_URL=sqlite:///demo.db python scripts/export_demo_snapshot.py
+```
+
+---
+
 ## 🛠️ Tech Stack
 
-- **Intelligence**: LangGraph (Agent Orchestration), Google Gemini / OpenAI Models.
+- **Intelligence**: LangGraph (pipeline orchestration), XGBoost, DEAP (genetic-algorithm scheduler), Gemma 3 12B via Ollama (local, memo generation only).
 - **Backend**: FastAPI (Python), SQLAlchemy ORM, Pydantic v2.
 - **Frontend**: React 18, Vite, Tailwind CSS, Framer Motion (Animations).
 - **Visualization**: Recharts, Lucide Icons.

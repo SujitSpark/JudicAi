@@ -1,0 +1,44 @@
+[
+ {
+  "log_id": 5,
+  "agent_name": "JudicialMemoAgent",
+  "action": "generate_memos",
+  "result_summary": "Generated 62 memos for critical cases",
+  "timestamp": "2026-11-24T06:16:59"
+ },
+ {
+  "log_id": 6,
+  "agent_name": "SupervisorAgent",
+  "action": "orchestration_complete",
+  "result_summary": "Orchestration completed. Memos: 62",
+  "timestamp": "2026-11-24T06:16:59"
+ },
+ {
+  "log_id": 4,
+  "agent_name": "SmartSchedulerAgent",
+  "action": "schedule_hearings",
+  "result_summary": "Scheduled 100 hearings with balanced judge load.",
+  "timestamp": "2026-11-24T06:14:53"
+ },
+ {
+  "log_id": 1,
+  "agent_name": "CaseIntakeAgent",
+  "action": "ingest_cases",
+  "result_summary": "Processed 100 cases into the registry.",
+  "timestamp": "2026-11-24T06:14:39"
+ },
+ {
+  "log_id": 2,
+  "agent_name": "RiskPriorityAnalyst",
+  "action": "calculate_scores",
+  "result_summary": "Calculated priority and risk scores for 100 cases.",
+  "timestamp": "2026-11-24T06:14:39"
+ },
+ {
+  "log_id": 3,
+  "agent_name": "DelayPatternAnalyst",
+  "action": "analyze_patterns",
+  "result_summary": "Identified 11 system-wide delay patterns.",
+  "timestamp": "2026-11-24T06:14:39"
+ }
+]

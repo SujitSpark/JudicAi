@@ -4,18 +4,18 @@ import {
   Clock, 
   Gavel, 
   Calendar, 
-  AlertTriangle,
   Scale,
-  ShieldCheck,
-  Mail
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useEffect } from 'react';
-import { toast } from 'sonner';
+import { riskBand } from '../lib/risk';
 
 export default function CaseDetailPanel() {
   const selectedCase = useCasesStore((s) => s.selectedCase);
   const selectCase = useCasesStore((s) => s.selectCase);
+  const memos = useCasesStore((s) => s.memos);
+  const fetchMemos = useCasesStore((s) => s.fetchMemos);
+  useEffect(() => { if (selectedCase && memos.length === 0) fetchMemos(); }, [selectedCase, memos.length, fetchMemos]);
 
   useEffect(() => {
     if (selectedCase) {
@@ -68,9 +68,9 @@ export default function CaseDetailPanel() {
                   "px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-widest ring-1 ring-inset",
                   selectedCase.adj_risk_score >= 80 ? "bg-red-50 text-red-600 ring-red-100" : "bg-primary text-secondary-fixed ring-primary/20"
                 )}>
-                  {selectedCase.adj_risk_score >= 80 ? 'Critical' : 'Standard'} Risk
+                  {riskBand(selectedCase.adj_risk_score)} risk · {selectedCase.adj_risk_score.toFixed(0)}
                 </span>
-                <span className="px-3 py-1 bg-secondary-container text-secondary rounded-sm text-[10px] font-black uppercase tracking-widest ring-1 ring-secondary/10">Priority: {(selectedCase.priority_score * 100).toFixed(0)}</span>
+                <span className="px-3 py-1 bg-secondary-container text-secondary rounded-sm text-[10px] font-black uppercase tracking-widest ring-1 ring-secondary/10">Priority: {selectedCase.priority_score.toFixed(0)}</span>
               </div>
             </div>
           </div>
@@ -111,51 +111,31 @@ export default function CaseDetailPanel() {
             </div>
           </div>
 
-          {/* AI Insights & Procedural History */}
-          <div className="space-y-8">
-            <div className="flex items-center justify-between">
-              <h3 className="font-serif text-2xl font-bold text-primary underline underline-offset-8 decoration-primary/10">Procedural Summary</h3>
-              <ShieldCheck className="w-5 h-5 text-secondary animate-pulse" />
-            </div>
-            
-            <div className="judicial-card p-8 bg-surface-container-low border-none space-y-6 relative overflow-hidden group ring-1 ring-outline-variant/5">
-              <div className="absolute top-0 right-0 p-4 opacity-5 bg-primary rounded-bl-3xl group-hover:bg-primary transition-all duration-700">
-                <AlertTriangle className="w-12 h-12 text-white" />
+          {/* Facts the scores are based on, and the memo if one was drafted */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-6">
+              <div className="space-y-1 px-4 border-r border-outline-variant/10">
+                <span className="text-[9px] font-sans font-black uppercase tracking-widest text-[#00003c]/30">Adjournments</span>
+                <p className="text-xl font-serif font-black text-primary">{selectedCase.adjournments_count}</p>
               </div>
-              <div className="relative space-y-6">
-                <p className="font-sans text-sm text-on-surface/70 leading-relaxed italic border-l-2 border-primary/20 pl-6">
-                  "This case in {selectedCase.district} demonstrates a procedural complexity relative to its {selectedCase.case_type} classification. 
-                  High risk of {selectedCase.adjournments_count > 20 ? 'systemic' : 'incidental'} delay noted."
-                </p>
-                <div className="flex items-center gap-6">
-                  <div className="space-y-1 px-4 border-r border-outline-variant/10">
-                    <span className="text-[9px] font-sans font-black uppercase tracking-widest text-[#00003c]/30">Adjournments</span>
-                    <p className="text-xl font-serif font-black text-primary">{selectedCase.adjournments_count}</p>
-                  </div>
-                  <div className="space-y-1">
-                    <span className="text-[9px] font-sans font-black uppercase tracking-widest text-[#00003c]/30">Case Age</span>
-                    <p className="text-[11px] font-sans font-bold text-primary uppercase">{selectedCase.age_days} Days active</p>
-                  </div>
-                </div>
+              <div className="space-y-1 px-4 border-r border-outline-variant/10">
+                <span className="text-[9px] font-sans font-black uppercase tracking-widest text-[#00003c]/30">Case age</span>
+                <p className="text-xl font-serif font-black text-primary">{(selectedCase.age_days / 365).toFixed(1)} yrs</p>
+              </div>
+              <div className="space-y-1 px-4">
+                <span className="text-[9px] font-sans font-black uppercase tracking-widest text-[#00003c]/30">Next hearing</span>
+                <p className="text-xl font-serif font-black text-primary">{selectedCase.next_hearing_date ? new Date(selectedCase.next_hearing_date).toLocaleDateString() : '—'}</p>
               </div>
             </div>
-          </div>
-           {/* Action Protocols */}
-          <div className="space-y-4 pt-4 pb-10">
-             <h3 className="font-sans font-black uppercase tracking-[0.2em] text-[10px] text-on-surface/30 px-2 pb-2">Execution Protocols</h3>
-             <div className="grid gap-3">
-                <button 
-                  onClick={() => {
-                    toast.success(`Legal Notification: Schedule transmitted to petitioner for Case ${selectedCase.case_number}`, {
-                      description: `Next Hearing: ${selectedCase.next_hearing_date || 'TBD'} | Risk: ${selectedCase.adj_risk_score}%`,
-                    });
-                  }}
-                  className="btn-secondary py-3 flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:bg-primary hover:text-white transition-all shadow-sm"
-                >
-                   <Mail className="w-4 h-4" />
-                   Email Schedule to Petitioner
-                </button>
-             </div>
+            <h3 className="font-serif text-2xl font-bold text-primary">Memo</h3>
+            {(() => {
+              const memo = memos.find((m) => m.case_internal_id === selectedCase.case_internal_id);
+              return memo ? (
+                <p className="judicial-card p-6 bg-surface-container-low border-none font-sans text-sm text-on-surface/70 leading-relaxed border-l-2 border-primary/20">{memo.memo_text}</p>
+              ) : (
+                <p className="text-sm text-on-surface/40 italic">No memo. Memos are drafted only when priority or risk is above 65.</p>
+              );
+            })()}
           </div>
           </div>
       </div>

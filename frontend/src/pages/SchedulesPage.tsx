@@ -6,7 +6,6 @@ import {
   ChevronRight, 
   Clock, 
   MapPin, 
-  Sparkles,
   Trophy
 } from 'lucide-react';
 import { clsx } from 'clsx';
@@ -21,6 +20,15 @@ export default function SchedulesPage() {
     fetchCases();
     fetchSchedules();
   }, [fetchCases, fetchSchedules]);
+
+  // Open the calendar on the month of the first scheduled hearing, so a snapshot
+  // viewed later doesn't land on an empty month.
+  useEffect(() => {
+    if (schedules.length === 0) return;
+    const first = schedules.map(s => s.hearing_date).sort()[0];
+    const d = new Date(first);
+    setViewDate(new Date(d.getFullYear(), d.getMonth(), 1));
+  }, [schedules]);
 
   // Dynamic Date Calculations
   const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -80,14 +88,10 @@ export default function SchedulesPage() {
         <div className="space-y-1">
           <h1 className="text-5xl font-serif font-bold tracking-tight text-primary">Schedules</h1>
           <p className="text-on-surface/40 font-sans font-medium uppercase tracking-[0.2em] text-[10px] font-black">
-            Judicial Calendar • Operational Hearing Matrix
+            {schedules.length} hearings placed by the Scheduler agent (genetic algorithm)
           </p>
         </div>
         
-        <button className="bg-primary text-secondary-fixed flex items-center gap-2 px-8 py-3 rounded-sm shadow-xl hover:bg-[#000050] transition-all group">
-          <Sparkles className="w-4 h-4 text-secondary-fixed animate-pulse" />
-          <span className="text-[11px] font-black uppercase tracking-widest">Generate Optimized Schedule</span>
-        </button>
       </div>
 
       <div className="grid grid-cols-1 gap-10">

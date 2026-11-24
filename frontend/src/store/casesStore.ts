@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { useAuthStore } from './authStore';
+import { apiGet, API_BASE, IS_DEMO } from '../lib/api';
 
 export interface CourtCase {
   case_internal_id: number;
@@ -88,14 +89,7 @@ export const useCasesStore = create<CasesState>((set, get) => ({
   fetchCases: async () => {
     set({ isLoading: true, error: null });
     try {
-      const { accessToken } = useAuthStore.getState();
-      const response = await fetch('http://127.0.0.1:8000/cases', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      });
-      if (!response.ok) throw new Error('Failed to fetch cases');
-      const data = await response.json();
+      const data = await apiGet<CourtCase[]>('/cases?limit=1000');
       set({ cases: data, isLoading: false });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });
@@ -103,107 +97,47 @@ export const useCasesStore = create<CasesState>((set, get) => ({
   },
 
   fetchKPIs: async () => {
-    try {
-      const { accessToken } = useAuthStore.getState();
-      const response = await fetch('http://127.0.0.1:8000/dashboard/kpis', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        set({ kpis: data });
-      }
-    } catch (err) {
-      console.error('Failed to fetch KPIs:', err);
-    }
+    try { set({ kpis: await apiGet('/dashboard/kpis') }); }
+    catch (err) { console.error('Failed to fetch KPIs:', err); }
   },
 
   fetchInsights: async () => {
     try {
-      const { accessToken } = useAuthStore.getState();
-      const response = await fetch('http://127.0.0.1:8000/dashboard/insights', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
+      const data = await apiGet('/dashboard/insights');
+      set({
+        insights: data.insights,
+        preventionSuggestions: data.prevention_suggestions,
+        topCriticalCase: data.top_critical_case,
       });
-      if (response.ok) {
-        const data = await response.json();
-        set({ 
-          insights: data.insights, 
-          preventionSuggestions: data.prevention_suggestions,
-          topCriticalCase: data.top_critical_case
-        });
-      }
-    } catch (err) {
-      console.error('Failed to fetch insights:', err);
-    }
+    } catch (err) { console.error('Failed to fetch insights:', err); }
   },
 
   fetchMemos: async () => {
-    try {
-      const { accessToken } = useAuthStore.getState();
-      const response = await fetch('http://127.0.0.1:8000/memos', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        set({ memos: data });
-      }
-    } catch (err) {
-      console.error('Failed to fetch memos:', err);
-    }
+    try { set({ memos: await apiGet('/cases/support/memos') }); }
+    catch (err) { console.error('Failed to fetch memos:', err); }
   },
 
   fetchSchedules: async () => {
-    try {
-      const { accessToken } = useAuthStore.getState();
-      const response = await fetch('http://127.0.0.1:8000/hearings', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        set({ schedules: data });
-      }
-    } catch (err) {
-      console.error('Failed to fetch schedules:', err);
-    }
+    try { set({ schedules: await apiGet('/cases/support/hearings') }); }
+    catch (err) { console.error('Failed to fetch schedules:', err); }
   },
 
   fetchLogs: async () => {
-    try {
-      const { accessToken } = useAuthStore.getState();
-      const response = await fetch('http://127.0.0.1:8000/agent-logs', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        set({ agentLogs: data });
-      }
-    } catch (err) {
-      console.error('Failed to fetch logs:', err);
-    }
+    try { set({ agentLogs: await apiGet('/dashboard/logs') }); }
+    catch (err) { console.error('Failed to fetch logs:', err); }
   },
 
   runAnalysis: async () => {
+    if (IS_DEMO) return;
     set({ isLoading: true });
     try {
       const { accessToken } = useAuthStore.getState();
-      const response = await fetch(`http://127.0.0.1:8000/agents/run-full-analysis`, {
+      const response = await fetch(`${API_BASE}/cases/run-full-analysis`, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
+        headers: { Authorization: `Bearer ${accessToken}` },
       });
       if (response.ok) {
-        await get().fetchCases();
-        await get().fetchKPIs();
+        await Promise.all([get().fetchCases(), get().fetchKPIs(), get().fetchInsights(), get().fetchLogs()]);
       }
     } catch (err) {
       console.error('Analysis failed:', err);

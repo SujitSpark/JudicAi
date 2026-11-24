@@ -1,0 +1,59 @@
+{
+ "insights": [
+  {
+   "title": "Repeated adjournments",
+   "detail": "15 cases have more than 30 adjournments; the largest group is WRIT PETITION (4).",
+   "type": "critical"
+  },
+  {
+   "title": "Largest case type",
+   "detail": "WRIT PETITION accounts for 24 of 100 cases.",
+   "type": "warning"
+  },
+  {
+   "title": "Memo coverage",
+   "detail": "62 memos drafted for 62 cases above the 65-point priority or risk cut-off.",
+   "type": "success"
+  }
+ ],
+ "prevention_suggestions": [
+  {
+   "title": "Review decade-old cases",
+   "detail": "11 cases were filed more than 10 years ago.",
+   "icon": "Clock"
+  },
+  {
+   "title": "Hear similar cases together",
+   "detail": "4 heavily adjourned cases share the type WRIT PETITION; listing them on the same bench could cut repeat adjournments.",
+   "icon": "Layers"
+  }
+ ],
+ "top_critical_case": {
+  "case_id": "SC-2024-0005",
+  "case_number": "Criminal Appeal (Murder Case) No. 5303 of 2008",
+  "filing_date": "2008-10-19T00:00:00",
+  "registration_date": "2008-10-19T00:00:00",
+  "last_hearing_date": "2026-11-14T00:00:00",
+  "next_hearing_date": "2026-12-24T00:00:00",
+  "case_type": "CRIMINAL APPEAL (MURDER CASE)",
+  "nature_of_case": "CRITICAL / LIFE & LIBERTY",
+  "status": "ADJOURNED",
+  "court_name": "Apex Court",
+  "court_name_level": "Apex Court",
+  "district": "New Delhi",
+  "state": "Maharashtra",
+  "petitioner_count": 7,
+  "respondent_count": 3,
+  "adjournments_count": 73,
+  "case_internal_id": 5,
+  "age_days": 6610,
+  "last_adjournment_date": null,
+  "priority_score": 100.0,
+  "adj_risk_score": 95.5,
+  "risk_level": "CRITICAL",
+  "escalation_level": 3,
+  "created_at": "2026-11-24T06:14:39",
+  "updated_at": "2026-11-24T06:14:53",
+  "assigned_user_id": 6
+ }
+}

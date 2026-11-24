@@ -1,0 +1,12 @@
+{
+ "total_cases": 100,
+ "high_risk_cases": 53,
+ "avg_priority": 50.91,
+ "memos_ready": 62,
+ "trends": {
+  "total": "pending in registry",
+  "risk": "53% of cases \u00b7 risk score 80+",
+  "priority": "29 cases above 60",
+  "memos": "for priority or risk above 65"
+ }
+}

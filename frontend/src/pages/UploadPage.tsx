@@ -1,13 +1,11 @@
 import { useState, useCallback, useRef } from 'react';
+import { API_BASE, IS_DEMO } from '../lib/api';
 import { 
   Upload, 
   FileSpreadsheet, 
   X, 
   CheckCircle2, 
-  AlertCircle, 
-  ShieldCheck, 
   ChevronRight,
-  Database,
   Loader2
 } from 'lucide-react';
 import { clsx } from 'clsx';
@@ -56,13 +54,17 @@ export default function UploadPage() {
 
   const commitToRegistry = async () => {
     if (files.length === 0) return;
+    if (IS_DEMO) {
+      toast.info('Upload needs the backend. Run JudicAI locally to ingest your own CSV.');
+      return;
+    }
     setIsUploading(true);
     
     const formData = new FormData();
     formData.append('file', files[0].file);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/cases/upload', {
+      const response = await fetch(`${API_BASE}/cases/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`
@@ -89,7 +91,7 @@ export default function UploadPage() {
       <div className="flex flex-col gap-2 border-b border-outline-variant/10 pb-8">
         <h1 className="text-5xl font-serif font-bold tracking-tight text-primary">Document Intake</h1>
         <p className="text-on-surface/40 font-sans font-medium uppercase tracking-[0.2em] text-[10px] font-black">
-          Automated Ingestion • Judicial Evidence Vault
+          Upload a CSV of case records; the Intake agent cleans and validates it
         </p>
       </div>
 
@@ -111,7 +113,7 @@ export default function UploadPage() {
               ref={fileInputRef} 
               onChange={handleFileSelect} 
               className="hidden" 
-              accept=".csv,.xlsx,.xls"
+              accept=".csv"
             />
             {isDragging && (
               <div className="absolute inset-0 bg-primary/5 animate-pulse" />
@@ -123,41 +125,21 @@ export default function UploadPage() {
               </div>
               
               <div className="space-y-2">
-                <h3 className="font-serif text-3xl font-bold text-primary">Drag & Drop Registry Data</h3>
+                <h3 className="font-serif text-3xl font-bold text-primary">Drop a CSV file</h3>
                 <p className="text-sm font-sans text-on-surface/40 max-w-[280px] leading-relaxed">
-                  Support for <span className="font-bold text-primary">CSV, Excel (.xlsx)</span>, and <span className="font-bold text-primary">TSV</span> formats.
+                  <span className="font-bold text-primary">CSV</span> only, with the columns used in <span className="font-mono">data/supreme_court_100.csv</span>.
                 </p>
               </div>
               
               <div className="pt-4">
                 <button className="bg-primary text-secondary-fixed px-10 py-3 rounded-sm shadow-xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#000050] transition-all">
-                  Select System Files
+                  Choose CSV
                 </button>
               </div>
             </div>
             
-            <div className="absolute bottom-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.15em] text-on-surface/20">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Secure Encrypted Transmission • Judicial Standard
-            </div>
           </div>
 
-          <div className="judicial-card p-8 bg-surface-container-low/50 border-none space-y-6 ring-1 ring-outline-variant/5">
-            <div className="flex items-center gap-3 pb-4 border-b border-outline-variant/10">
-              <Database className="w-5 h-5 text-primary/40" />
-              <h4 className="font-serif text-xl font-bold text-primary">Database Synchronization</h4>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-sans font-bold text-on-surface/60 uppercase tracking-widest">Target Cluster</span>
-                <span className="text-[11px] font-mono font-black text-primary">REGISTRY-01-A</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-sans font-bold text-on-surface/60 uppercase tracking-widest">Ingestion Priority</span>
-                <span className="text-[11px] font-sans font-black text-secondary uppercase">High Precision</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Validation Feedback */}

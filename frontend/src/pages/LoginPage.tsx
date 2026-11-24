@@ -1,4 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { API_BASE, IS_DEMO } from '../lib/api';
+import judicaiIcon from '../assets/judicai-icon.svg';
 import { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { toast } from 'sonner';
@@ -10,12 +12,14 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  if (IS_DEMO) return <Navigate to="/dashboard" replace />;
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/auth/login', {
+      const response = await fetch(`${API_BASE}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
 
@@ -50,9 +54,7 @@ export default function LoginPage() {
         {/* Brand Identity */}
         <div className="mb-10 text-center">
           <div className="flex items-center justify-center mb-6">
-            <div className="bg-primary p-3 rounded-full shadow-xl border border-secondary/30">
-              <span className="material-symbols-outlined text-4xl text-secondary-fixed" style={{ fontVariationSettings: "'FILL' 1" }}>gavel</span>
-            </div>
+            <img src={judicaiIcon} alt="" className="w-16 h-16 shadow-xl rounded-[14px]" />
           </div>
           <h1 className="font-serif text-6xl font-bold tracking-tight text-white mb-2 drop-shadow-md">JudicAI</h1>
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-secondary-fixed font-semibold opacity-90">Judicial Intelligence System</p>

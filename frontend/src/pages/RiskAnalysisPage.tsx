@@ -10,23 +10,23 @@ import {
 } from 'recharts';
 import { 
   AlertTriangle, 
-  TrendingDown, 
   Lightbulb, 
-  ChevronRight,
   Layers,
   Clock,
   Users
 } from 'lucide-react';
 import { clsx } from 'clsx';
+import { riskBand, RISK_BANDS, benchLabel } from '../lib/risk';
 
 export default function RiskAnalysisPage() {
-  const { cases, preventionSuggestions, fetchInsights } = useCasesStore();
-  
+  const { cases, preventionSuggestions, fetchInsights, fetchCases } = useCasesStore();
+
   useEffect(() => {
     fetchInsights();
-  }, [fetchInsights]);
+    if (cases.length === 0) fetchCases();
+  }, [fetchInsights, fetchCases, cases.length]);
 
-  const highRiskCases = cases.filter(c => c.risk_level === 'CRITICAL' || c.risk_level === 'HIGH').slice(0, 6);
+  const highRiskCases = [...cases].sort((a, b) => b.adj_risk_score - a.adj_risk_score).filter(c => c.adj_risk_score >= 60).slice(0, 6);
 
   const ICON_MAP: Record<string, any> = {
     'Lightbulb': Lightbulb,
@@ -35,19 +35,19 @@ export default function RiskAnalysisPage() {
     'Users': Users
   };
 
-  const riskDistribution = [
-    { name: 'Low', count: cases.filter(c => c.risk_level === 'LOW').length, color: '#f0ede8' },
-    { name: 'Medium', count: cases.filter(c => c.risk_level === 'MEDIUM').length, color: '#e0e0ff' },
-    { name: 'High', count: cases.filter(c => c.risk_level === 'HIGH').length, color: '#735c00' },
-    { name: 'Critical', count: cases.filter(c => c.risk_level === 'CRITICAL').length, color: '#00003c' },
-  ];
+  const COLORS: Record<string, string> = { Low: '#d6d3cc', Medium: '#9ca3c7', High: '#735c00', Critical: '#00003c' };
+  const riskDistribution = RISK_BANDS.map(({ band, range }) => ({
+    name: `${band} (${range})`,
+    count: cases.filter(c => riskBand(c.adj_risk_score) === band).length,
+    color: COLORS[band],
+  }));
 
   return (
     <div className="space-y-10 animate-fade-in max-w-[1600px] mx-auto pb-20">
       <div className="flex flex-col gap-2 border-b border-outline-variant/10 pb-8">
         <h1 className="text-5xl font-serif font-bold tracking-tight text-primary">Risk Analysis</h1>
         <p className="text-on-surface/40 font-sans font-medium uppercase tracking-[0.2em] text-[10px] font-black">
-          Predictive Justice • Registry Risk Assessment
+          Adjournment-risk score from the Risk agent (rule engine + XGBoost), 0-100
         </p>
       </div>
 
@@ -56,7 +56,7 @@ export default function RiskAnalysisPage() {
         <div className="judicial-card p-8 space-y-8">
           <div className="flex items-center justify-between border-b border-outline-variant/5 pb-4">
             <h3 className="font-serif text-xl font-bold text-primary">Risk Distribution</h3>
-            <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">Active Caseload</span>
+            <span className="text-[10px] font-sans font-black text-on-surface/30 uppercase tracking-widest">Cases per risk band</span>
           </div>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -82,11 +82,11 @@ export default function RiskAnalysisPage() {
         </div>
 
         <div className="space-y-6">
-          <h3 className="font-serif text-xl font-bold text-primary px-2">Prevention Suggestions</h3>
+          <h3 className="font-serif text-xl font-bold text-primary px-2">Suggestions from the data</h3>
           <div className="space-y-4">
             {preventionSuggestions.length === 0 ? (
               <div className="judicial-card p-6 text-center italic text-on-surface/30">
-                Analyzing registry for preventive opportunities...
+                No suggestions for this data.
               </div>
             ) : (
               preventionSuggestions.map((s, i) => {
@@ -111,10 +111,7 @@ export default function RiskAnalysisPage() {
       {/* High Risk Cases List */}
       <div className="space-y-6">
         <div className="flex items-center justify-between px-2">
-          <h3 className="font-serif text-2xl font-bold text-primary">High-Risk Dossiers</h3>
-          <button className="text-[10px] font-sans font-black text-primary/40 uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1 group">
-            Risk Analysis Report <TrendingDown className="w-3 h-3 group-hover:translate-y-0.5 transition-transform" />
-          </button>
+          <h3 className="font-serif text-2xl font-bold text-primary">Highest-risk cases</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -127,7 +124,7 @@ export default function RiskAnalysisPage() {
                   </div>
                   <div className={clsx(
                     "p-2 rounded-sm",
-                    c.risk_level === 'CRITICAL' ? "bg-red-50 text-red-600" : "bg-primary text-secondary-fixed"
+                    riskBand(c.adj_risk_score) === 'Critical' ? "bg-red-50 text-red-600" : "bg-primary text-secondary-fixed"
                   )}>
                     <AlertTriangle className="w-5 h-5" />
                   </div>
@@ -135,8 +132,8 @@ export default function RiskAnalysisPage() {
                 
                 <div className="grid grid-cols-2 gap-4 pt-2 border-t border-outline-variant/10">
                   <div className="space-y-1">
-                    <span className="text-[9px] font-sans font-black uppercase text-on-surface/30 tracking-widest">Type</span>
-                    <p className="text-[11px] font-sans font-bold text-on-surface/70">{c.case_type}</p>
+                    <span className="text-[9px] font-sans font-black uppercase text-on-surface/30 tracking-widest">Risk</span>
+                    <p className="text-[11px] font-sans font-bold text-on-surface/70">{c.adj_risk_score.toFixed(0)} · {riskBand(c.adj_risk_score)}</p>
                   </div>
                   <div className="space-y-1">
                     <span className="text-[9px] font-sans font-black uppercase text-on-surface/30 tracking-widest">Adjournments</span>
@@ -144,18 +141,14 @@ export default function RiskAnalysisPage() {
                   </div>
                   <div className="space-y-1">
                     <span className="text-[9px] font-sans font-black uppercase text-on-surface/30 tracking-widest">Priority</span>
-                    <p className="text-[11px] font-sans font-bold text-on-surface/70">{(c.priority_score * 100).toFixed(0)}</p>
+                    <p className="text-[11px] font-sans font-bold text-on-surface/70">{c.priority_score.toFixed(0)}</p>
                   </div>
                   <div className="space-y-1">
-                    <span className="text-[9px] font-sans font-black uppercase text-on-surface/30 tracking-widest">Judge</span>
-                    <p className="text-[11px] font-sans font-bold text-on-surface/70 truncate">{c.assigned_user_id || 'Unassigned'}</p>
+                    <span className="text-[9px] font-sans font-black uppercase text-on-surface/30 tracking-widest">Bench</span>
+                    <p className="text-[11px] font-sans font-bold text-on-surface/70 truncate">{benchLabel(c.assigned_user_id)}</p>
                   </div>
                 </div>
               
-              <button className="w-full flex items-center justify-between group/btn text-[10px] font-sans font-black uppercase tracking-[0.2em] text-primary/40 hover:text-primary transition-all pt-2">
-                Analyze Precedents
-                <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
             </div>
           ))}
         </div>

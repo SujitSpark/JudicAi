@@ -56,13 +56,15 @@ def run_agent():
     save_results_to_db(df)
     
     # 9. Generate Output JSON (Sample for verification)
-    output_sample = df[["case_number", "adjournment_risk_score", "risk_level"]].head(10).to_dict(orient="records")
+    results = df[["case_number", "adjournment_risk_score", "risk_level"]].to_dict(orient="records")
+    output_sample = results[:10]
     
     print("ML Risk Prediction Agent completed successfully.")
     return json.dumps({
         "status": "success",
         "rows_processed": len(df),
-        "sample_output": output_sample
+        "sample_output": output_sample,
+        "results": results,
     }, indent=2)
 
 if __name__ == "__main__":

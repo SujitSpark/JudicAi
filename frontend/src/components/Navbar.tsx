@@ -1,4 +1,5 @@
-import { Bell, Search, LogOut } from 'lucide-react';
+import { Search, LogOut } from 'lucide-react';
+import { IS_DEMO } from '../lib/api';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCasesStore } from '../store/casesStore';
 import { useAuthStore } from '../store/authStore';
@@ -39,20 +40,13 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-6 pr-2">
-        <div className="relative group cursor-pointer p-2 rounded-full hover:bg-surface-container-low transition-colors">
-          <Bell className="w-5 h-5 text-on-surface/40 group-hover:text-primary transition-colors" />
-          <span className="absolute top-2.5 right-2.5 w-1.5 h-1.5 bg-tertiary rounded-full border border-surface shadow-sm" />
-        </div>
-        
-        <div className="h-4 w-[1px] bg-outline-variant/20 mx-1" />
-        
-        <button 
+        {!IS_DEMO && <button 
           onClick={handleLogout}
           className="flex items-center gap-2 group p-1.5 rounded-sm hover:bg-red-50 text-on-surface/40 hover:text-red-600 transition-all"
         >
           <LogOut className="w-4 h-4" />
           <span className="text-[10px] font-sans uppercase font-bold tracking-[0.1em]">Sign Out</span>
-        </button>
+        </button>}
 
       </div>
     </header>
